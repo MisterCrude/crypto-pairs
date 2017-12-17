@@ -1,5 +1,49 @@
-body {
+/* RESET */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+*:focus { outline: 0 }
+
+body {
+  color: black;
+  background: white;
+  font-family: Roboto, sans-serif;
+  line-height: 1;
+}
+
+ol, ul { list-style: none; }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+}
+
+blockquote::after { content: ""; }
+blockquote::before { content: ""; }
+
+q::before,
+q::after { content: ""; }
+
+blockquote, q { quotes: "" ""; }
+
+/* FONTS */
+@font-face {
+  font-family: "Roboto";
+  /*font-weight: $weight*/
+  /*src: url("./static/fonts/Roboto-#{$name}.ttf") format("truetype"),*/
+        /*url("./static/fonts/Roboto-#{$name}.eot?#iefix") format("embedded-opentype");*/
 }
