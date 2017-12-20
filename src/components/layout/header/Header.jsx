@@ -4,7 +4,7 @@ import HeaderStyles from './HeaderStyles';
 
 
 const Header = () => (
-    <header>
+    <header style={HeaderStyles}>
         Header component
     </header>
 );

@@ -9,7 +9,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font-family: inherit;
   vertical-align: baseline;
 }
-
+* { box-sizing: border-box; }
 *:focus { outline: 0 }
 
 body {
@@ -41,9 +41,9 @@ q::after { content: ""; }
 blockquote, q { quotes: "" ""; }
 
 /* FONTS */
-@font-face {
-  font-family: "Roboto";
+/*@font-face {*/
+  /*font-family: "Roboto";*/
   /*font-weight: $weight*/
   /*src: url("./static/fonts/Roboto-#{$name}.ttf") format("truetype"),*/
         /*url("./static/fonts/Roboto-#{$name}.eot?#iefix") format("embedded-opentype");*/
-}
+/*}*/
