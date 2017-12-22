@@ -1,10 +1,29 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
+import buttons from '../../../styles/buttons';
+import variables from '../../../styles/variables';
 
 import AddCurrenciesListStyles from './AddNewCurrencyStyles';
 
 
 class AddNewCurrency extends React.Component {
+    buttonAnimation(e, isOver) {
+        let button = e.target;
+        let animationOptions = {
+            duration: 800,
+            easing: 'ease-in-out',
+            iterations: '1',
+            fill: 'forwards',
+        };
+        let backgroundPosition;
+
+        if (isOver)  {
+            backgroundPosition = ['0 0', '100% 0']
+        } else {
+            backgroundPosition = ['100% 0', '0 0']
+        }
+        button.animate({backgroundPosition}, animationOptions);
+    }
+
     render() {
         const {
             setCoin,
@@ -14,28 +33,36 @@ class AddNewCurrency extends React.Component {
         } = this.props;
 
         return (
-            <form>
+            <form style={AddCurrenciesListStyles.form}>
                 {/* Base coin */}
-                <label htmlFor="baseCoin">Base coin</label>
-                <select id="baseCoin" onChange={(e) => setCoin(e, true)}>
-                    {baseCurrencies.map((item, i) =>
-                        <option key={i} value={item.code}>
-                            {item.code} - {item.name}
-                        </option>)}
-                </select>
+                <fieldset style={AddCurrenciesListStyles.fieldSet}>
+                    <label style={AddCurrenciesListStyles.label} htmlFor="baseCoin">Base coin</label>
+                    <select id="baseCoin" onChange={(e) => setCoin(e, true)}>
+                        {baseCurrencies.map((item, i) =>
+                            <option key={i} value={item.code}>
+                                {item.code} - {item.name}
+                            </option>)}
+                    </select>
+                </fieldset>
 
                 {/* Target coin */}
-                <label htmlFor="targetCoin">Target coin</label>
-                <select id="targetCoin" onChange={(e) => setCoin(e, false)}>
-                    {targetCurrencies.map((item, i) =>
-                        <option key={i} value={item.code}>
-                            {item.code} - {item.name}
-                        </option>)}
-                </select>
+                <fieldset style={AddCurrenciesListStyles.fieldSet}>
+                    <label style={AddCurrenciesListStyles.label} htmlFor="targetCoin">Target coin</label>
+                    <select id="targetCoin" onChange={(e) => setCoin(e, false)}>
+                        {targetCurrencies.map((item, i) =>
+                            <option key={i} value={item.code}>
+                                {item.code} - {item.name}
+                            </option>)}
+                    </select>
+                </fieldset>
 
                 {/* Button */}
-                <button onClick={addNewCurrenciesPair}>
-                    Add new pair <FontAwesome name="plus"/>
+                <button
+                    style={{...buttons.gradientMiddle, ...AddCurrenciesListStyles.button}}
+                    onMouseOver={(e) => this.buttonAnimation(e, true)}
+                    onMouseLeave={(e) => this.buttonAnimation(e, false)}
+                    onClick={addNewCurrenciesPair}>
+                    Add new pair +
                 </button>
             </form>
         );

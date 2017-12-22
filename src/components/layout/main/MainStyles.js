@@ -3,9 +3,9 @@ import variables from '../../../styles/variables';
 
 const MainStyles = {
     flexGrow: 1,
-    width: '100vw',
+    width: '100%',
     maxWidth: variables.widthContainerSmall,
-    padding: variables.paddingMiddle,
+    padding: `${variables.paddingLarge} ${variables.paddingMiddle}`,
     backgroundColor: variables.white,
     borderRadius: variables.borderRadius,
     boxShadow: variables.boxShadow,

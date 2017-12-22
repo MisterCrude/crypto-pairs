@@ -6,7 +6,7 @@ const AppStyles = {
    flexDirection: 'column',
    alignItems: 'center',
    minHeight: '100vh',
-   padding: `0 ${variables.padding}`,
+   padding: `0 ${variables.paddingSmall}`,
    backgroundColor: variables.colorBackgroundMain,
    backgroundImage: `url('/static/media/img/main-bg.png')`,
    backgroundSize: `250px`,

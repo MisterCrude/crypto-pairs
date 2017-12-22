@@ -3,9 +3,12 @@ const variables = {
     colorBackgroundMain: '#ffffff',
     colorFontFirst: '#2b2d38',
     colorFontSecond: '#71778e',
-    green: '#16c399',
+    colorGradient: 'linear-gradient(45deg,#d350db,teal 70%,#d350db)',
+    colorGradientInvert: 'linear-gradient(45deg,teal,#d350db,teal)',
+
+    green: '#008080',
     white: '#ffffff',
-    red: '#e85660',
+    red: '#d350db',
 
     // SIZES
     widthContainerLarge: '1220px',
@@ -18,7 +21,7 @@ const variables = {
     // OTHER
     borderRadius: '4px',
     boxShadow: '0px 0px 40px 0px rgba(199,199,199,.9)',
-    boxShadowSmall: '0px 0px 10px 0px rgba(199,199,199,.5)',
+    boxShadowSmall: '0px 0px 3px 3px rgba(199, 199, 199, 0.9)',
 };
 
 export default variables;

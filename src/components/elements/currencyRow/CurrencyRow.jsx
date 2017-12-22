@@ -44,7 +44,7 @@ class CurrencyRow extends React.Component {
                     <span style={typography.fontLarge}>{change}</span>
 
                     {/* Change percents */}
-                    <span style={typography.fontSmall}>({changePercents}%)</span>
+                    <span style={{...typography.fontSmall, paddingLeft: variables.paddingSmall}}>({changePercents}%)</span>
                 </td>
                 <td>
                     {/* Remove button */}
