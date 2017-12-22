@@ -18,19 +18,26 @@ class Api {
             method: 'GET',
         })
             .then(resp => resp.json())
-            .then(reps => reps['ticker'])
-            .then(reps => ({
-                base: reps.base,
-                target: reps.target,
-                price: reps.price,
-                change: reps.change,
-                changeUp: this.changeUpDetection(reps.change),
+            .then(resp => resp['ticker'])
+            .then(resp => ({
+                base: resp.base,
+                target: resp.target,
+                price: resp.price,
+                change: resp.change,
+                changePercents: this._countPercentage(resp.change, resp.price),
+                changeUp: !this._changeUpDetection(resp.change),
             }))
     }
 
-    changeUpDetection(change) {
-        let patt = new RegExp('e');
-        return patt.test(change);
+    _changeUpDetection(change) {
+        return /-/.test(change);
+    }
+
+    _countPercentage(change, price) {
+        let pr = parseInt(price, 10);
+        let ch = parseInt(change, 10);
+
+        return (ch/(pr/100)).toFixed(2);
     }
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import variables from '../../../styles/variables';
+import typography from '../../../styles/typography';
+import helpers from '../../../styles/helpers';
 
 import CurrencyRowStyles from './CurrencyRowStyles';
 
@@ -13,26 +15,42 @@ class CurrencyRow extends React.Component {
             price,
             change,
             changeUp,
+            changePercents,
             removeCurrenciesPair,
         } = this.props;
         return (
-            <div style={CurrencyRowStyles}>
-                {base}/{target}  {price}
+            <tr style={CurrencyRowStyles}>
+                <td>
+                    <span style={typography.fontLargeTitle}>
+                        {base}/{target}
+                    </span>
+                </td>
+                <td>
+                    <span style={typography.fontLarge}>
+                        {price}
+                    </span>
+                </td>
+                <td style={helpers.textCenter}>
+                    {/* Arrow indicator */}
+                    <span style={typography.fontLarge}>
+                        {changeUp
+                            ?  <FontAwesome style={{color: variables.green}} name="arrow-up" />
+                            :  <FontAwesome style={{color: variables.red}} name="arrow-down" />
+                        }
+                    </span>
+                </td>
+                <td style={helpers.textCenter}>
+                    {/* Change */}
+                    <span style={typography.fontLarge}>{change}</span>
 
-                {/* Arrow indicator */}
-                {changeUp
-                    ?  <FontAwesome style={{color: variables.green}} name="arrow-up" />
-                    :  <FontAwesome style={{color: variables.red}} name="arrow-down" />
-                }
-
-                {/* Change */}
-                {change}
-
-                {/* Remove button */}
-                <button onClick={removeCurrenciesPair('ok')}>
-                    <FontAwesome name="minus" />
-                </button>
-            </div>
+                    {/* Change percents */}
+                    <span style={typography.fontSmall}>({changePercents}%)</span>
+                </td>
+                <td>
+                    {/* Remove button */}
+                    <button onClick={removeCurrenciesPair}> - </button>
+                </td>
+            </tr>
         );
     }
 }

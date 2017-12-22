@@ -6,6 +6,7 @@ const MainStyles = {
     width: '100vw',
     maxWidth: variables.widthContainerSmall,
     padding: variables.paddingMiddle,
+    backgroundColor: variables.white,
     borderRadius: variables.borderRadius,
     boxShadow: variables.boxShadow,
 };

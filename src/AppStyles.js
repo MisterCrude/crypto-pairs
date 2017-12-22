@@ -8,8 +8,11 @@ const AppStyles = {
    minHeight: '100vh',
    padding: `0 ${variables.padding}`,
    backgroundColor: variables.colorBackgroundMain,
+   backgroundImage: `url('/static/media/img/main-bg.png')`,
+   backgroundSize: `250px`,
    color: variables.colorFontFirst,
    fontFamily: 'Roboto, sans-serif',
+   fontWeight: '300',
 };
 
 export default AppStyles;
