@@ -39,7 +39,7 @@ class CurrencyRow extends React.Component {
                         }
                     </span>
                 </td>
-                <td style={helpers.textCenter}>
+                <td>
                     {/* Change */}
                     <span style={typography.fontLarge}>{change}</span>
 

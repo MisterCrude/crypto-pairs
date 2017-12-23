@@ -20,8 +20,9 @@ const variables = {
 
     // OTHER
     borderRadius: '4px',
-    boxShadow: '0px 0px 40px 0px rgba(199,199,199,.9)',
-    boxShadowSmall: '0px 0px 3px 3px rgba(199, 199, 199, 0.9)',
+    boxShadow: '0 0 40px 0px rgba(199,199,199,.9)',
+    boxShadowSmall: '0 0 3px 3px #c7c7c7e6',
+    boxShadowSmallInvert: '0 0 3px 0 #c7c7c7e6',
 };
 
 export default variables;

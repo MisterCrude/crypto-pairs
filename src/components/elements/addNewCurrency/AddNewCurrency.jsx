@@ -6,22 +6,45 @@ import AddCurrenciesListStyles from './AddNewCurrencyStyles';
 
 
 class AddNewCurrency extends React.Component {
-    buttonAnimation(e, isOver) {
+    buttonAnimation(e, eventType, isFirstPartEvent) {
         let button = e.target;
         let animationOptions = {
-            duration: 800,
             easing: 'ease-in-out',
             iterations: '1',
             fill: 'forwards',
         };
-        let backgroundPosition;
+        let cssProperty;
 
-        if (isOver)  {
-            backgroundPosition = ['0 0', '100% 0']
-        } else {
-            backgroundPosition = ['100% 0', '0 0']
+        switch(eventType) {
+            case 'click':
+                // Click animation
+                let boxShadow;
+
+                if (isFirstPartEvent)  {
+                    boxShadow = [variables.boxShadowSmall, variables.boxShadowSmallInvert]
+                } else {
+                    boxShadow = [variables.boxShadowSmallInvert, variables.boxShadowSmall]
+                }
+                animationOptions.duration = 100;
+                cssProperty = {boxShadow};
+                break;
+            case 'hover':
+                // Hover animation
+                let backgroundPosition;
+                let dur = 800;
+
+                if (isFirstPartEvent)  {
+                    backgroundPosition = ['0 0', '100% 0']
+                } else {
+                    backgroundPosition = ['100% 0', '0 0']
+                }
+
+                animationOptions.duration = 800;
+                cssProperty = {backgroundPosition};
+                break;
         }
-        button.animate({backgroundPosition}, animationOptions);
+
+        button.animate({...cssProperty}, animationOptions);
     }
 
     render() {
@@ -59,8 +82,10 @@ class AddNewCurrency extends React.Component {
                 {/* Button */}
                 <button
                     style={{...buttons.gradientMiddle, ...AddCurrenciesListStyles.button}}
-                    onMouseOver={(e) => this.buttonAnimation(e, true)}
-                    onMouseLeave={(e) => this.buttonAnimation(e, false)}
+                    onMouseOver={(e) => this.buttonAnimation(e, 'hover', true)}
+                    onMouseLeave={(e) => this.buttonAnimation(e, 'hover', false)}
+                    onMouseDown={(e) => this.buttonAnimation(e, 'click', true)}
+                    onMouseUp={(e) => this.buttonAnimation(e, 'click', false)}
                     onClick={addNewCurrenciesPair}>
                     Add new pair +
                 </button>

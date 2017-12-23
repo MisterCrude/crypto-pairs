@@ -6,8 +6,7 @@ import HeaderStyles from './HeaderStyles';
 const Header = () => (
     <header style={HeaderStyles}>
         <h1>
-            Exchange rate for <br/>
-            popular cryptocurrencies
+            Exchange rate for BTC / LTC and etc.
         </h1>
     </header>
 );
