@@ -2,7 +2,7 @@ import variables from '../../../styles/variables';
 
 const CurrencyRowStyles = {
     row: {
-        lineHeight: '2.5em',
+        lineHeight: '3em',
     },
     titleLarge: {
         fontSize: variables.largeFont,

@@ -31,7 +31,6 @@ class AddNewCurrency extends React.Component {
             case 'hover':
                 // Hover animation
                 let backgroundPosition;
-                let dur = 800;
 
                 if (isFirstPartEvent)  {
                     backgroundPosition = ['0 0', '100% 0']

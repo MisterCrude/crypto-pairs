@@ -17,30 +17,31 @@ class CurrencyRow extends React.Component {
             changePercents,
             removeCurrenciesPair,
         } = this.props;
+        let changeIndicator = {
+            color: changeUp ? variables.green : variables.red,
+            icon: changeUp ? 'angle-up' : 'angle-down',
+        };
         return (
             <tr style={CurrencyRowStyles.row}>
                 <td>
-                    <span style={CurrencyRowStyles.titleLarge}>
+                    <span style={CurrencyRowStyles.text}>
                         {base}/{target}
                     </span>
                 </td>
                 <td>
-                    <span style={CurrencyRowStyles.text}>
+                    <span style={CurrencyRowStyles.titleLarge}>
                         {price}
                     </span>
                 </td>
                 <td style={helpers.textCenter}>
                     {/* Arrow indicator */}
                     <span style={CurrencyRowStyles.text}>
-                        {changeUp
-                            ?  <FontAwesome style={{...CurrencyRowStyles.arrow, color: variables.green}} name="angle-up" />
-                            :  <FontAwesome style={{...CurrencyRowStyles.arrow, color: variables.red}} name="angle-down" />
-                        }
+                        <FontAwesome style={{...CurrencyRowStyles.arrow, color: changeIndicator.color}} name={changeIndicator.icon} />
                     </span>
                 </td>
                 <td>
                     {/* Change */}
-                    <span style={CurrencyRowStyles.text}>{change}</span>
+                    <span style={{color: changeIndicator.color, ...CurrencyRowStyles.text}}>{change}</span>
 
                     {/* Change percents */}
                     <span style={CurrencyRowStyles.smallText}>({changePercents}%)</span>
