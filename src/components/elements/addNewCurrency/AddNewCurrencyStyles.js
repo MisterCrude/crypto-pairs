@@ -3,7 +3,6 @@ import variables from '../../../styles/variables';
 const AddCurrenciesListStyles = {
     form: {
         display: 'flex',
-        width: '80%',
         margin: `${variables.paddingMiddle} 0`,
     },
     fieldSet: {

@@ -1,7 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import variables from '../../../styles/variables';
-import typography from '../../../styles/typography';
 import helpers from '../../../styles/helpers';
 
 import CurrencyRowStyles from './CurrencyRowStyles';
@@ -19,32 +18,32 @@ class CurrencyRow extends React.Component {
             removeCurrenciesPair,
         } = this.props;
         return (
-            <tr style={CurrencyRowStyles}>
+            <tr style={CurrencyRowStyles.row}>
                 <td>
-                    <span style={typography.fontLargeTitle}>
+                    <span style={CurrencyRowStyles.titleLarge}>
                         {base}/{target}
                     </span>
                 </td>
                 <td>
-                    <span style={typography.fontLarge}>
+                    <span style={CurrencyRowStyles.text}>
                         {price}
                     </span>
                 </td>
                 <td style={helpers.textCenter}>
                     {/* Arrow indicator */}
-                    <span style={typography.fontLarge}>
+                    <span style={CurrencyRowStyles.text}>
                         {changeUp
-                            ?  <FontAwesome style={{color: variables.green}} name="arrow-up" />
-                            :  <FontAwesome style={{color: variables.red}} name="arrow-down" />
+                            ?  <FontAwesome style={{...CurrencyRowStyles.arrow, color: variables.green}} name="angle-up" />
+                            :  <FontAwesome style={{...CurrencyRowStyles.arrow, color: variables.red}} name="angle-down" />
                         }
                     </span>
                 </td>
                 <td>
                     {/* Change */}
-                    <span style={typography.fontLarge}>{change}</span>
+                    <span style={CurrencyRowStyles.text}>{change}</span>
 
                     {/* Change percents */}
-                    <span style={{...typography.fontSmall, paddingLeft: variables.paddingSmall}}>({changePercents}%)</span>
+                    <span style={CurrencyRowStyles.smallText}>({changePercents}%)</span>
                 </td>
                 <td>
                     {/* Remove button */}

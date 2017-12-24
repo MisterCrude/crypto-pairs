@@ -5,7 +5,7 @@ const MainStyles = {
     flexGrow: 1,
     width: '100%',
     maxWidth: variables.widthContainerSmall,
-    padding: `${variables.paddingLarge} ${variables.paddingMiddle}`,
+    padding: variables.paddingLarge,
     backgroundColor: variables.white,
     borderRadius: variables.borderRadius,
     boxShadow: variables.boxShadow,

@@ -3,12 +3,18 @@ const variables = {
     colorBackgroundMain: '#ffffff',
     colorFontFirst: '#2b2d38',
     colorFontSecond: '#71778e',
-    colorGradient: 'linear-gradient(45deg,#d350db,teal 70%,#d350db)',
-    colorGradientInvert: 'linear-gradient(45deg,teal,#d350db,teal)',
+    colorGradient: 'linear-gradient(45deg, #d350db, #57438a 70%, #d350db)',
+    colorGradientInvert: 'linear-gradient(45deg, #57438a, #d350db, #57438a)',
 
     green: '#008080',
     white: '#ffffff',
     red: '#d350db',
+
+    // FONT SIZES
+    smallFont: '1em',
+    middleFont: '1.5em',
+    largeFont: '2em',
+    extraLargeFont: '2.5em',
 
     // SIZES
     widthContainerLarge: '1220px',

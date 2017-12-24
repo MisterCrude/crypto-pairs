@@ -69,7 +69,7 @@ class AddNewCurrency extends React.Component {
                 </fieldset>
 
                 {/* Target coin */}
-                <fieldset style={AddCurrenciesListStyles.fieldSet}>
+                <fieldset style={{...AddCurrenciesListStyles.fieldSet, flexGrow: 2}}>
                     <label style={AddCurrenciesListStyles.label} htmlFor="targetCoin">Target coin</label>
                     <select id="targetCoin" onChange={(e) => setCoin(e, false)}>
                         {targetCurrencies.map((item, i) =>
