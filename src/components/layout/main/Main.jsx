@@ -27,15 +27,17 @@ class Main extends React.Component {
         Api.currencyRate(baseCoin, targetCoin)
             .then(resp => {
                 this.setState(prevState => ({
-                    currenciesPairs: [...prevState.currenciesPairs, {id: prevState.currenciesPairs.length,...resp}]
+                    currenciesPairs: [...prevState.currenciesPairs, resp]
                 }));
             })
             .catch(error => console.error(error));
     };
 
     // Remove currencies pair row with
-    removeCurrenciesPair = (key) => {
-        console.log(key);
+    removeCurrenciesPair = (id) => {
+        this.setState(prevState => ({
+            currenciesPairs: prevState.currenciesPairs.filter(item => item.id != id)
+        }));
     };
 
     // Set currencies list on selects

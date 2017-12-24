@@ -20,7 +20,7 @@ class CurrenciesPairs extends React.Component {
                             base={currenciesRow.base}
                             target={currenciesRow.target}
                             price={currenciesRow.price}
-                            removeCurrenciesPair={removeCurrenciesPair}/>
+                            removeCurrenciesPair={() => removeCurrenciesPair(currenciesRow.id)}/>
                     )}
                 </tbody>
             </table>
