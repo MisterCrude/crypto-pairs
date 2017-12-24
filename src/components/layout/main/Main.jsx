@@ -27,7 +27,7 @@ class Main extends React.Component {
         Api.currencyRate(baseCoin, targetCoin)
             .then(resp => {
                 this.setState(prevState => ({
-                    currenciesPairs: [...prevState.currenciesPairs, resp]
+                    currenciesPairs: [...prevState.currenciesPairs, {id: prevState.currenciesPairs.length,...resp}]
                 }));
             })
             .catch(error => console.error(error));

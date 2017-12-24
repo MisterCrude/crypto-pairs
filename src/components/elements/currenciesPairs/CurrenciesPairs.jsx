@@ -11,9 +11,9 @@ class CurrenciesPairs extends React.Component {
             <table style={CurrenciesPairsStyles}>
                 <tbody>
                     {/* Currency row */}
-                    {currenciesPairs.map((currenciesRow, i) =>
+                    {currenciesPairs.map((currenciesRow) =>
                         <CurrencyRow
-                            key={i}
+                            key={currenciesRow.id}
                             change={currenciesRow.change}
                             changeUp={currenciesRow.changeUp}
                             changePercents={currenciesRow.changePercents}
