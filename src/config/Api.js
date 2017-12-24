@@ -13,6 +13,10 @@ class Api {
         return [ ...AppConfig.currencies.fiat, ...AppConfig.currencies.crypto ]
     }
 
+    get getAffiliateLink() {
+        return  { ...AppConfig.affiliateLink };
+    }
+
     currencyRate(currencyCoinOne, currencyCoinTwo) {
         return fetch(`${this.apiUrl}/ticker/${currencyCoinOne}-${currencyCoinTwo}`, {
             method: 'GET',

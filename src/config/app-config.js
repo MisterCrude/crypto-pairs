@@ -5,6 +5,12 @@ const AppConfig = {
     // External API endpoint
     apiUrl: 'https://www.cryptonator.com/api',
 
+    // Affiliate link in footer
+    affiliateLink: {
+        name: 'cryptonator.com',
+        link: 'https://www.cryptonator.com/auth/signup/101759215',
+    },
+
     // Currencies on with you can check price base currency
     currencies: {
         fiat: [
@@ -22,9 +28,7 @@ const AppConfig = {
             { shortName: 'DASH', code: 'DASH', name: 'Dash' },
             { shortName: 'XMR', code: 'XMR', name: 'Monero' },
         ],
-    }
-
-
+    },
 };
 
 export default AppConfig;
