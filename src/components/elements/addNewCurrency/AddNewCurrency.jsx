@@ -1,6 +1,7 @@
 import React from 'react';
 import buttons from '../../../styles/buttons';
 import variables from '../../../styles/variables';
+import HelpersFoo from '../../../config/helpers-foo';
 
 import AddCurrenciesListStyles from './AddNewCurrencyStyles';
 
@@ -60,8 +61,8 @@ class AddNewCurrency extends React.Component {
                 <fieldset style={AddCurrenciesListStyles.fieldSet}>
                     <label style={AddCurrenciesListStyles.label} htmlFor="baseCoin">Base coin</label>
                     <select id="baseCoin" onChange={(e) => setCoin(e, true)}>
-                        {baseCurrencies.map((item, i) =>
-                            <option key={i} value={item.code}>
+                        {baseCurrencies.map((item) =>
+                            <option key={HelpersFoo.getRandomNumber()} value={item.code}>
                                 {item.code} - {item.name}
                             </option>)}
                     </select>
@@ -71,8 +72,8 @@ class AddNewCurrency extends React.Component {
                 <fieldset style={{...AddCurrenciesListStyles.fieldSet, flexGrow: 2}}>
                     <label style={AddCurrenciesListStyles.label} htmlFor="targetCoin">Target coin</label>
                     <select id="targetCoin" onChange={(e) => setCoin(e, false)}>
-                        {targetCurrencies.map((item, i) =>
-                            <option key={i} value={item.code}>
+                        {targetCurrencies.map((item) =>
+                            <option key={HelpersFoo.getRandomNumber()} value={item.code}>
                                 {item.code} - {item.name}
                             </option>)}
                     </select>

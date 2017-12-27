@@ -31,7 +31,7 @@ const CurrencyRowStyles = {
         cursor: 'pointer',
         position: 'relative',
         top: '-2px',
-        opacity: '.5',
+        opacity: '.4',
     },
 };
 

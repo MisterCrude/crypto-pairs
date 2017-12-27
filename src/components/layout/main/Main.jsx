@@ -1,8 +1,9 @@
 import React from 'react';
 import CurrenciesPairs from '../../elements/currenciesPairs/CurrenciesPairs';
 import AddNewCurrency from '../../elements/addNewCurrency/AddNewCurrency';
-import helpers from '../../../styles/helpers';
-import FontAwesome from 'react-fontawesome';
+import NotificationList from '../../elements/notificationList/NotificationList';
+import HelpersFoo from '../../../config/helpers-foo';
+import NotificationsType from '../../../config/notification-types';
 import Api from '../../../config/Api';
 
 import MainStyles from './MainStyles';
@@ -17,6 +18,7 @@ class Main extends React.Component {
             targetCurrencies: [],
             baseCoin: '',
             targetCoin: '',
+            notifications: [],
         };
     }
 
@@ -28,12 +30,33 @@ class Main extends React.Component {
 
         Api.currencyRate(baseCoin, targetCoin)
             .then(resp => {
-                this.setState(prevState => ({
-                    currenciesPairs: [...prevState.currenciesPairs, resp],
-                }));
+                if (this.hasSamePair(resp, this.state.currenciesPairs)) {
+                    // Add unique ID for every 'the same pair' notification
+                    let warning = {
+                        ...NotificationsType.warning,
+                        id: HelpersFoo.getRandomNumber(),
+                        content: `You already have ${resp.base}/${resp.target} pair`,
+                    };
 
+                    this.setState(prevState => ({
+                        notifications: [...prevState.notifications, {...warning}],
+                    }));
+                } else {
+                    this.setState(prevState => ({
+                        currenciesPairs: [...prevState.currenciesPairs, resp],
+                    }));
+                }
             })
             .catch(error => console.error(error));
+    };
+
+    // Return true if state have same currency pair
+    hasSamePair = (newPair, state) => {
+        for (let statePair of state) {
+            if (statePair.base === newPair.base && statePair.target === newPair.target) {
+                return true;
+            }
+        }
     };
 
     // Remove currencies pair row with
@@ -52,6 +75,17 @@ class Main extends React.Component {
         }
     };
 
+    // Close notifications
+    dismiss = (e, notificationId) => {
+        if (e) {
+            e.preventDefault();
+        }
+
+        this.setState((prevState) => ({
+            notifications: prevState.notifications.filter((item) => item.id !== notificationId)
+        }));
+    };
+
     componentDidMount() {
         let baseList = Api.getBaseCurrenciesList;
         let targetList = Api.getTargetCurrenciesList;
@@ -68,7 +102,11 @@ class Main extends React.Component {
     };
 
     render() {
-        const { baseCurrencies, targetCurrencies, currenciesPairs } = this.state;
+        const {
+            baseCurrencies,
+            targetCurrencies,
+            currenciesPairs
+        } = this.state;
 
         return (
             <main style={MainStyles}>
@@ -85,9 +123,14 @@ class Main extends React.Component {
                     setCoin={this.setCoin} />
 
                 {/*<button>add to screen</button>*/}
+
+                {/* Notifications */}
+                <NotificationList
+                    dismiss={this.dismiss}
+                    notifications={this.state.notifications} />
             </main>
         )
-    }
+    };
 }
 
 export default Main;

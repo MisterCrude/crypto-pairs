@@ -1,4 +1,5 @@
 import AppConfig from './app-config';
+import HelpersFoo from './helpers-foo';
 
 class Api {
     constructor () {
@@ -28,10 +29,6 @@ class Api {
         return  { ...AppConfig.affiliateLink };
     }
 
-    get _getRandomNumber() {
-        return Math.floor((1 + Math.random())*0x10000).toString(16);
-    }
-
     currencyRate(currencyCoinOne, currencyCoinTwo) {
         return fetch(`${this.apiUrl}/ticker/${currencyCoinOne}-${currencyCoinTwo}`, {
             method: 'GET',
@@ -39,7 +36,7 @@ class Api {
             .then(resp => resp.json())
             .then(resp => resp['ticker'])
             .then(resp => ({
-                id: this._getRandomNumber,
+                id: HelpersFoo.getRandomNumber(),
                 base: resp.base,
                 target: resp.target,
                 price: resp.price,

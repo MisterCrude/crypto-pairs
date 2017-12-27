@@ -7,10 +7,16 @@ const variables = {
     colorGradientInvert: 'linear-gradient(45deg, #57438a, #d350db, #57438a)',
     closeButtonGradient: 'linear-gradient(to bottom, #d5b8e2 0%, #8b48ac 50%, #a18daa 100%)',
 
+    colorNoteBackgroundWarning: 'rgba(240, 168, 40, .8)',
+    colorNoteBackgroundError: '#d5b8e2',
+    colorNoteTextWarning: '#614921',
+    colorNoteTextError: '',
+
     deepBlue: '#b9b9b9',
     green: '#008080',
     white: '#ffffff',
     red: '#d350db',
+
 
     // FONT SIZES
     smallFont: '1em',
