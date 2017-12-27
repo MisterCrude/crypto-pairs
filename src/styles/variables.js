@@ -5,7 +5,9 @@ const variables = {
     colorFontSecond: '#71778e',
     colorGradient: 'linear-gradient(45deg, #d350db, #57438a 70%, #d350db)',
     colorGradientInvert: 'linear-gradient(45deg, #57438a, #d350db, #57438a)',
+    closeButtonGradient: 'linear-gradient(to bottom, #d5b8e2 0%, #8b48ac 50%, #a18daa 100%)',
 
+    deepBlue: '#b9b9b9',
     green: '#008080',
     white: '#ffffff',
     red: '#d350db',

@@ -1,6 +1,8 @@
 import React from 'react';
 import CurrenciesPairs from '../../elements/currenciesPairs/CurrenciesPairs';
 import AddNewCurrency from '../../elements/addNewCurrency/AddNewCurrency';
+import helpers from '../../../styles/helpers';
+import FontAwesome from 'react-fontawesome';
 import Api from '../../../config/Api';
 
 import MainStyles from './MainStyles';
@@ -27,8 +29,9 @@ class Main extends React.Component {
         Api.currencyRate(baseCoin, targetCoin)
             .then(resp => {
                 this.setState(prevState => ({
-                    currenciesPairs: [...prevState.currenciesPairs, resp]
+                    currenciesPairs: [...prevState.currenciesPairs, resp],
                 }));
+
             })
             .catch(error => console.error(error));
     };

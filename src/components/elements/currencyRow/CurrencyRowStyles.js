@@ -20,7 +20,19 @@ const CurrencyRowStyles = {
     },
     arrow: {
         fontSize: variables.middleFont,
-    }
+    },
+    closeButton: {
+        fontSize: variables.middleFont,
+        padding: 0,
+        margin: 0,
+        border: 0,
+        verticalAlign: 'middle',
+        lineHeight: 1,
+        cursor: 'pointer',
+        position: 'relative',
+        top: '-2px',
+        opacity: '.5',
+    },
 };
 
 export default CurrencyRowStyles;

@@ -48,7 +48,11 @@ class CurrencyRow extends React.Component {
                 </td>
                 <td>
                     {/* Remove button */}
-                    <button onClick={removeCurrenciesPair}> - </button>
+                    <button
+                        style={CurrencyRowStyles.closeButton}
+                        onClick={removeCurrenciesPair}>
+                        <FontAwesome name="times-circle" />
+                    </button>
                 </td>
             </tr>
         );
