@@ -7,10 +7,10 @@ const variables = {
     colorGradientInvert: 'linear-gradient(45deg, #57438a, #d350db, #57438a)',
     closeButtonGradient: 'linear-gradient(to bottom, #d5b8e2 0%, #8b48ac 50%, #a18daa 100%)',
 
-    colorNoteBackgroundWarning: 'rgba(240, 168, 40, .8)',
-    colorNoteBackgroundError: '#d5b8e2',
-    colorNoteTextWarning: '#614921',
-    colorNoteTextError: '',
+    colorNoteBackgroundWarning: 'rgba(240, 199, 40, .9)',
+    colorNoteBackgroundError: 'rgba(243, 102, 48, .9)',
+    colorNoteTextWarning: '#543e19',
+    colorNoteTextError: '#7d1d1d',
 
     deepBlue: '#b9b9b9',
     green: '#008080',
@@ -35,7 +35,8 @@ const variables = {
     // OTHER
     borderRadius: '4px',
     boxShadow: '0 0 40px 0px rgba(199,199,199,.9)',
-    boxShadowSmall: '0 0 3px 3px #c7c7c7e6',
+    boxShadowSmall: '0 0 3px 3px #d2d1d1e6',
+    boxShadowXSmall: '0 0 3px 3px #d2d1d182',
     boxShadowSmallInvert: '0 0 3px 0 #c7c7c7e6',
 };
 

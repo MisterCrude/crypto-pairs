@@ -31,24 +31,31 @@ class Main extends React.Component {
         Api.currencyRate(baseCoin, targetCoin)
             .then(resp => {
                 if (this.hasSamePair(resp, this.state.currenciesPairs)) {
-                    // Add unique ID for every 'the same pair' notification
-                    let warning = {
-                        ...NotificationsType.warning,
-                        id: HelpersFoo.getRandomNumber(),
-                        content: `You already have ${resp.base}/${resp.target} pair`,
-                    };
-
-                    this.setState(prevState => ({
-                        notifications: [...prevState.notifications, {...warning}],
-                    }));
+                    this.showNotification(resp.base, resp.target);
                 } else {
                     this.setState(prevState => ({
-                        currenciesPairs: [...prevState.currenciesPairs, resp],
+                        currenciesPairs: [...prevState.currenciesPairs, resp,],
                     }));
                 }
             })
             .catch(error => console.error(error));
     };
+
+    // Show notification
+    showNotification(baseCoin, targetCoin) {
+        let warning = {
+            ...NotificationsType.warning,
+            // Add unique ID for every 'the same pair' notification
+            id: HelpersFoo.getRandomNumber(),
+            content: `You already have ${baseCoin}/${targetCoin} pair`,
+        };
+
+        this.setState(prevState => ({
+            notifications: [...prevState.notifications, {...warning}],
+        }));
+
+        console.log(this.state.notifications);
+    }
 
     // Return true if state have same currency pair
     hasSamePair = (newPair, state) => {
@@ -76,7 +83,7 @@ class Main extends React.Component {
     };
 
     // Close notifications
-    dismiss = (e, notificationId) => {
+    dismissNotification = (e, notificationId) => {
         if (e) {
             e.preventDefault();
         }
@@ -126,7 +133,7 @@ class Main extends React.Component {
 
                 {/* Notifications */}
                 <NotificationList
-                    dismiss={this.dismiss}
+                    dismiss={this.dismissNotification}
                     notifications={this.state.notifications} />
             </main>
         )

@@ -7,11 +7,11 @@ import NotificationStyles from './NotificationStyles';
 class Notification extends React.Component {
     constructor(props) {
         super(props);
-        this.dismissTimeout = 2000;
+        this.dismissTimeout = 3000;
     }
 
     componentDidMount() {
-        setTimeout(() => this.props.dismiss(null, this.props.id), this.dismissTimeout);
+        // setTimeout(() => this.props.dismiss(null, this.props.id), this.dismissTimeout);
     };
 
     render() {
@@ -29,10 +29,14 @@ class Notification extends React.Component {
                 <button
                     onClick={(e) => dismiss(e, id)}
                     style={NotificationStyles.closeButton}>
-                    <FontAwesome name="times" />
+                    &times;
                 </button>
 
                 {/* Content */}
+
+                <FontAwesome
+                    name={(type === 'warning') ? 'exclamation-triangle' : 'exclamation-circle'}
+                    style={{...NotificationStyles.sign, ...NotificationStyles[`${type}Sign`]}}/>
                 {content}
             </div>
         );

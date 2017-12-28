@@ -3,8 +3,7 @@ import variables from '../../../styles/variables';
 const NotificationStyles = {
     container: {
         position: 'relative',
-        boxShadow: variables.boxShadowSmall,
-        padding: `${variables.paddingSmall} ${variables.paddingLarge}`,
+        padding: `${variables.paddingSmall} ${variables.paddingLarge} ${variables.paddingSmall} ${variables.paddingSmall}`,
         verticalAlign: 'middle',
         borderRadius: variables.borderRadius,
         marginBottom: variables.paddingSmall,
@@ -19,11 +18,14 @@ const NotificationStyles = {
         color: variables.colorNoteTextError,
         backgroundColor: variables.colorNoteBackgroundError,
     },
+    warningSign: { color: '#a58613', },
+    errorSign: { color: '9e0b0b', },
+    sign: { marginRight: '.5em', },
     closeButton: {
         cursor: 'pointer',
-        fontSize: variables.smallFont,
+        fontSize: '1.2em',
         position: 'absolute',
-        top: '0',
+        top: '-3px',
         right: '0',
         border: 'none',
         backgroundColor: 'transparent',
