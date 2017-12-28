@@ -50,11 +50,14 @@ class Main extends React.Component {
             content: `You already have ${baseCoin}/${targetCoin} pair`,
         };
 
-        this.setState(prevState => ({
-            notifications: [...prevState.notifications, {...warning}],
-        }));
+        this.setState(prevState => {
+            let oldNotifications = prevState.notifications;
 
-        console.log(this.state.notifications);
+            if (oldNotifications > 3) {
+                oldNotifications.pop();
+            }
+            return {notifications: [{...warning}, ...oldNotifications,]};
+        })
     }
 
     // Return true if state have same currency pair
