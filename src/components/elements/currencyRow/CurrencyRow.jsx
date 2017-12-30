@@ -15,6 +15,7 @@ class CurrencyRow extends React.Component {
             change,
             changeUp,
             changePercents,
+            hideRemoveButton,
             removeCurrenciesPair,
         } = this.props;
         let changeIndicator = {
@@ -48,11 +49,12 @@ class CurrencyRow extends React.Component {
                 </td>
                 <td>
                     {/* Remove button */}
-                    <button
-                        style={CurrencyRowStyles.closeButton}
-                        onClick={removeCurrenciesPair}>
-                        <FontAwesome name="times-circle" />
-                    </button>
+                    {hideRemoveButton &&
+                        <button
+                            style={CurrencyRowStyles.closeButton}
+                            onClick={removeCurrenciesPair}>
+                            <FontAwesome name="times-circle" />
+                        </button>}
                 </td>
             </tr>
         );
