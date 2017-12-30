@@ -11,7 +11,7 @@ class Notification extends React.Component {
     }
 
     componentDidMount() {
-        // setTimeout(() => this.props.dismiss(null, this.props.id), this.dismissTimeout);
+        setTimeout(() => this.props.dismiss(null, this.props.id), this.dismissTimeout);
     };
 
     render() {

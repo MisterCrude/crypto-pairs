@@ -53,10 +53,10 @@ class Main extends React.Component {
         this.setState(prevState => {
             let oldNotifications = prevState.notifications;
 
-            if (oldNotifications > 3) {
-                oldNotifications.pop();
+            if (oldNotifications.length > 3) {
+                oldNotifications.shift();
             }
-            return {notifications: [{...warning}, ...oldNotifications,]};
+            return {notifications: [...oldNotifications, {...warning},]};
         })
     }
 
@@ -95,6 +95,7 @@ class Main extends React.Component {
             notifications: prevState.notifications.filter((item) => item.id !== notificationId)
         }));
     };
+
 
     componentDidMount() {
         let baseList = Api.getBaseCurrenciesList;

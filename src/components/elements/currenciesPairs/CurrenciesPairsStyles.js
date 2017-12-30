@@ -1,5 +1,16 @@
+import variables from '../../../styles/variables';
+
+
 const CurrenciesPairsStyles = {
-    width: '100%',
+    table: {
+        width: '100%',
+    },
+    spinnerWrapper: {
+        textAlign: 'center',
+    },
+    spinner: {
+        fontSize: variables.middleFont
+    }
 };
 
 export default CurrenciesPairsStyles;
