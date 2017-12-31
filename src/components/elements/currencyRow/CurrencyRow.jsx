@@ -7,6 +7,48 @@ import CurrencyRowStyles from './CurrencyRowStyles';
 
 
 class CurrencyRow extends React.Component {
+    constructor(props) {
+        super(props);
+        this.animationDuration = 300;
+        this.state = {
+            animateStyle: {
+                transition: `all ${this.animationDuration}ms ease`,
+                opacity: 0,
+            },
+        }
+    }
+
+    mountStyle = () => {
+        this.setState(prevState => ({
+            animateStyle: {
+                ...prevState.animateStyle,
+                opacity: 1,
+            },
+        }));
+    };
+
+    unMountStyle = () => {
+        this.setState(prevState => ({
+            animateStyle: {
+                ...prevState.animateStyle,
+                opacity: 0,
+            },
+        }));
+    };
+
+    removeCurrenciesPair = (removeParentMethod, hideRemoveButton=false) => {
+        if (hideRemoveButton) {
+            return;
+        }
+
+        this.unMountStyle();
+        setTimeout(() => removeParentMethod(), this.animationDuration + 20);
+    };
+
+    componentWillMount() {
+       setTimeout(() => this.mountStyle(), 10);
+    };
+
     render () {
         const {
             base,
@@ -23,7 +65,7 @@ class CurrencyRow extends React.Component {
             icon: changeUp ? 'angle-up' : 'angle-down',
         };
         return (
-            <tr style={CurrencyRowStyles.row}>
+            <tr style={{...this.state.animateStyle, ...CurrencyRowStyles.row}}>
                 <td>
                     <span style={CurrencyRowStyles.text}>
                         {base}/{target}
@@ -49,12 +91,11 @@ class CurrencyRow extends React.Component {
                 </td>
                 <td>
                     {/* Remove button */}
-                    {hideRemoveButton &&
-                        <button
-                            style={CurrencyRowStyles.closeButton}
-                            onClick={removeCurrenciesPair}>
-                            <FontAwesome name="times-circle" />
-                        </button>}
+                    <button
+                        style={{visibility: (hideRemoveButton && 'hidden'), ...CurrencyRowStyles.closeButton}}
+                        onClick={(e) => this.removeCurrenciesPair(removeCurrenciesPair, hideRemoveButton)}>
+                        <FontAwesome name="times-circle" />
+                    </button>
                 </td>
             </tr>
         );

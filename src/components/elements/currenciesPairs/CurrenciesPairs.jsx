@@ -23,7 +23,7 @@ class CurrenciesPairs extends React.Component {
                                     base={currenciesRow.base}
                                     target={currenciesRow.target}
                                     price={currenciesRow.price}
-                                    hideRemoveButton={!(currenciesPairs.length === 1)}
+                                    hideRemoveButton={currenciesPairs.length === 1}
                                     removeCurrenciesPair={() => removeCurrenciesPair(currenciesRow.id)}/>
                             )
                         ) : (
