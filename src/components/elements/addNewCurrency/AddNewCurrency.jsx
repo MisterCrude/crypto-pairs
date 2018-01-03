@@ -2,6 +2,7 @@ import React from 'react';
 import buttons from '../../../styles/buttons';
 import variables from '../../../styles/variables';
 import HelpersFoo from '../../../config/helpers-foo';
+import SearchInput from '../../elements/searchInput/SearchInput';
 
 import AddCurrenciesListStyles from './AddNewCurrencyStyles';
 
@@ -58,6 +59,9 @@ class AddNewCurrency extends React.Component {
         return (
             <form style={AddCurrenciesListStyles.form}>
                 {/* Base coin */}
+                <SearchInput items={baseCurrencies} />
+
+
                 <fieldset style={AddCurrenciesListStyles.fieldSet}>
                     <label style={AddCurrenciesListStyles.label} htmlFor="baseCoin">Base coin</label>
                     <select id="baseCoin" onChange={(e) => setCoin(e, true)}>
