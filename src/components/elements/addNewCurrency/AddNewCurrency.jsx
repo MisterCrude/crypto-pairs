@@ -59,29 +59,31 @@ class AddNewCurrency extends React.Component {
         return (
             <form style={AddCurrenciesListStyles.form}>
                 {/* Base coin */}
-                <SearchInput items={baseCurrencies} />
+                <SearchInput
+                    items={baseCurrencies}
+                    setValue={setCoin} />
 
 
-                <fieldset style={AddCurrenciesListStyles.fieldSet}>
-                    <label style={AddCurrenciesListStyles.label} htmlFor="baseCoin">Base coin</label>
-                    <select id="baseCoin" onChange={(e) => setCoin(e, true)}>
-                        {baseCurrencies.map((item) =>
-                            <option key={HelpersFoo.getRandomNumber()} value={item.code}>
-                                {item.code} - {item.name}
-                            </option>)}
-                    </select>
-                </fieldset>
+                {/*<fieldset style={AddCurrenciesListStyles.fieldSet}>*/}
+                    {/*<label style={AddCurrenciesListStyles.label} htmlFor="baseCoin">Base coin</label>*/}
+                    {/*<select id="baseCoin" onChange={(e) => setCoin(e, true)}>*/}
+                        {/*{baseCurrencies.map((item) =>*/}
+                            {/*<option key={HelpersFoo.getRandomNumber()} value={item.code}>*/}
+                                {/*{item.code} - {item.name}*/}
+                            {/*</option>)}*/}
+                    {/*</select>*/}
+                {/*</fieldset>*/}
 
-                {/* Target coin */}
-                <fieldset style={{...AddCurrenciesListStyles.fieldSet, flexGrow: 2}}>
-                    <label style={AddCurrenciesListStyles.label} htmlFor="targetCoin">Target coin</label>
-                    <select id="targetCoin" onChange={(e) => setCoin(e, false)}>
-                        {targetCurrencies.map((item) =>
-                            <option key={HelpersFoo.getRandomNumber()} value={item.code}>
-                                {item.code} - {item.name}
-                            </option>)}
-                    </select>
-                </fieldset>
+                {/*/!* Target coin *!/*/}
+                {/*<fieldset style={{...AddCurrenciesListStyles.fieldSet, flexGrow: 2}}>*/}
+                    {/*<label style={AddCurrenciesListStyles.label} htmlFor="targetCoin">Target coin</label>*/}
+                    {/*<select id="targetCoin" onChange={(e) => setCoin(e, false)}>*/}
+                        {/*{targetCurrencies.map((item) =>*/}
+                            {/*<option key={HelpersFoo.getRandomNumber()} value={item.code}>*/}
+                                {/*{item.code} - {item.name}*/}
+                            {/*</option>)}*/}
+                    {/*</select>*/}
+                {/*</fieldset>*/}
 
                 {/* Button */}
                 <button

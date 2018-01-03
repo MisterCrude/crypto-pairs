@@ -22,27 +22,34 @@ class SearchInputSuggestBox extends React.Component {
         });
 
         // Update state
+        if (inputValue.search('-')+1) {
+             return;
+        }
         this.setState({
             itemsForShowing: newItems,
         });
     };
 
+    setSelectedItem = (coinName, fullCurrencyName) => {
+        this.props.setSelectedItem(coinName, fullCurrencyName)
+    };
+
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-        if (nextProps.inputValue.length) {
-            this.calcList(this.props.items, nextProps.inputValue);
-        } else {
-            this.setState({
-                itemsForShowing: [],
-            });
-        }
+        this.calcList(this.props.items, nextProps.inputValue);
     }
 
     render() {
+        const {
+            suggestBoxStatus,
+        } = this.props;
+
         return(
            <ul>
-               {this.state.itemsForShowing.map(item =>
-                   <li key={HelpersFoo.getRandomNumber()}>{item.code} - {item.name}</li>)}
+               {suggestBoxStatus &&
+                   this.state.itemsForShowing.map(item =>
+                   <li
+                       key={HelpersFoo.getRandomNumber()}
+                       onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)}>{item.code} - {item.name}</li>)}
            </ul>
         );
     }

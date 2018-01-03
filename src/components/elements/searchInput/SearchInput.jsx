@@ -9,12 +9,31 @@ class SearchInput extends React.Component {
         super(props);
         this.state = {
             inputValue: '',
+            showSuggestBox: false,
         }
     }
 
-    handleChange = (e) => {
+    handleChange = (event) => {
         // Set input value
-        this.setState({inputValue: e.target.value});
+        this.setState({
+            inputValue: event.target.value,
+        });
+    };
+
+    setSelectedItem = (coinName, fullCurrencyName) => {
+        // Set selected item from  'SearchInputSuggestBox'
+        this.setState({
+            inputValue: fullCurrencyName,
+        });
+        this.props.setValue(coinName, true);
+    };
+
+    setSuggestBoxStatus = (status) => {
+        setTimeout(() => {
+            this.setState({
+                showSuggestBox: status,
+            })
+        }, 10);
     };
 
     render() {
@@ -26,12 +45,16 @@ class SearchInput extends React.Component {
            <fieldset>
                {/* Text field */}
                <input
+                   onFocus={() => this.setSuggestBoxStatus(true)}
+                   onBlur={() => this.setSuggestBoxStatus(false)}
                    onChange={this.handleChange}
                    value={this.state.inputValue}
                    type="text" />
 
                {/* Suggestions */}
                <SearchInputSuggestBox
+                   suggestBoxStatus={this.state.showSuggestBox}
+                   setSelectedItem={this.setSelectedItem}
                    inputValue={this.state.inputValue}
                    items={items} />
            </fieldset>

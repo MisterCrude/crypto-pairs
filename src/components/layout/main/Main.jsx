@@ -77,11 +77,11 @@ class Main extends React.Component {
     };
 
     // Set currencies list on selects
-    setCoin = (event, isBaseCoin) => {
+    setCoin = (coinName, isBaseCoin) => {
         if (isBaseCoin) {
-            this.setState({ baseCoin: event.target.value });
+            this.setState({ baseCoin: coinName });
         } else {
-            this.setState({ targetCoin: event.target.value });
+            this.setState({ targetCoin: coinName });
         }
     };
 
