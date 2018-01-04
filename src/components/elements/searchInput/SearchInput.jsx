@@ -30,11 +30,21 @@ class SearchInput extends React.Component {
 
     setSuggestBoxStatus = (status) => {
         setTimeout(() => {
-            this.setState({
-                showSuggestBox: status,
-            })
+            this.setState({ showSuggestBox: status, });
+            // if (status) {
+            //     this.setState({ inputValue: '', });
+            // }
         }, 10);
     };
+
+    // componentWillReceiveProps(nextProps) {
+    //     // Set default value
+    //     if (nextProps.items.length && !this.state.inputValue) {
+    //         this.setState({
+    //             inputValue: `${nextProps.items[0].shortName} - ${nextProps.items[0].name}`,
+    //         });
+    //     }
+    // }
 
     render() {
         const {
