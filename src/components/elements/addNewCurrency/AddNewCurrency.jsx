@@ -1,7 +1,6 @@
 import React from 'react';
 import buttons from '../../../styles/buttons';
 import variables from '../../../styles/variables';
-import HelpersFoo from '../../../config/helpers-foo';
 import SearchInput from '../../elements/searchInput/SearchInput';
 
 import AddCurrenciesListStyles from './AddNewCurrencyStyles';
@@ -61,40 +60,19 @@ class AddNewCurrency extends React.Component {
                 {/* Base coin */}
                 <div style={AddCurrenciesListStyles.fieldSet}>
                     <SearchInput
+                        label='Base coin'
                         items={baseCurrencies}
-                        setValue={setCoin} />
+                        setValue={(coinName, isBaseCoin=true) => {setCoin(coinName, isBaseCoin)}} />
                 </div>
 
 
                 {/* Target coin */}
                 <div style={AddCurrenciesListStyles.fieldSet}>
                     <SearchInput
-                        style={AddCurrenciesListStyles.fieldSet}
+                        label='Target coin'
                         items={targetCurrencies}
-                        setValue={setCoin} />
+                        setValue={(coinName, isBaseCoin=false) => {setCoin(coinName, isBaseCoin)}} />
                 </div>
-
-
-                {/*<fieldset style={AddCurrenciesListStyles.fieldSet}>*/}
-                    {/*<label style={AddCurrenciesListStyles.label} htmlFor="baseCoin">Base coin</label>*/}
-                    {/*<select id="baseCoin" onChange={(e) => setCoin(e, true)}>*/}
-                        {/*{baseCurrencies.map((item) =>*/}
-                            {/*<option key={HelpersFoo.getRandomNumber()} value={item.code}>*/}
-                                {/*{item.code} - {item.name}*/}
-                            {/*</option>)}*/}
-                    {/*</select>*/}
-                {/*</fieldset>*/}
-
-                {/*/!* Target coin *!/*/}
-                {/*<fieldset style={{...AddCurrenciesListStyles.fieldSet, flexGrow: 2}}>*/}
-                    {/*<label style={AddCurrenciesListStyles.label} htmlFor="targetCoin">Target coin</label>*/}
-                    {/*<select id="targetCoin" onChange={(e) => setCoin(e, false)}>*/}
-                        {/*{targetCurrencies.map((item) =>*/}
-                            {/*<option key={HelpersFoo.getRandomNumber()} value={item.code}>*/}
-                                {/*{item.code} - {item.name}*/}
-                            {/*</option>)}*/}
-                    {/*</select>*/}
-                {/*</fieldset>*/}
 
                 {/* Button */}
                 <button

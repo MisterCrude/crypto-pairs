@@ -1,5 +1,6 @@
 import React from 'react';
 import HelpersFoo from '../../../config/helpers-foo';
+import variables from '../../../styles/variables';
 
 import SearchInputSuggestBoxStyles from './SearchInputSuggestBoxStyles';
 
@@ -33,6 +34,19 @@ class SearchInputSuggestBox extends React.Component {
         this.props.setSelectedItem(coinName, fullCurrencyName)
     };
 
+    hoverAnimation = (event, isOverEvent) => {
+        let item = event.target;
+        let animationOptions = {
+            easing: 'ease-in-out',
+            iterations: '1',
+            fill: 'forwards',
+            duration: 300,
+        };
+        let backgroundColor = (isOverEvent) ? [variables.white, variables.lightGay] : [variables.lightGay, variables.white];
+
+        item.animate({backgroundColor}, animationOptions);
+    };
+
     componentWillReceiveProps(nextProps) {
         this.calcList(this.props.items, nextProps.inputValue);
     }
@@ -43,13 +57,18 @@ class SearchInputSuggestBox extends React.Component {
         } = this.props;
 
         return(
-           <ul style={{...SearchInputSuggestBoxStyles.list, display: (suggestBoxStatus) ? 'block' : 'none'}}>
-               {this.state.itemsForShowing.map(item =>
-                   <li
-                       style={SearchInputSuggestBoxStyles.item}
-                       key={HelpersFoo.getRandomNumber()}
-                       onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)}>{item.code} - {item.name}</li>)}
-           </ul>
+            <ul style={{...SearchInputSuggestBoxStyles.list, display: (suggestBoxStatus) ? 'block' : 'none'}}>
+                {this.state.itemsForShowing.map(item =>
+                    <li
+                        style={{...SearchInputSuggestBoxStyles.item, cursor: 'pointer'}}
+                        key={HelpersFoo.getRandomNumber()}
+                        onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)}
+                        onMouseOver={(e) => this.hoverAnimation(e, true)}
+                        onMouseLeave={(e) => this.hoverAnimation(e, false)} >{item.code} - {item.name}</li>)}
+
+                    {/* No results */}
+                    {this.state.itemsForShowing.length == 0 && <li style={SearchInputSuggestBoxStyles.item}>No results</li>}
+            </ul>
         );
     }
 }

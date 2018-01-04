@@ -11,14 +11,6 @@ const AddCurrenciesListStyles = {
         padding: 0,
         marginRight: '1em',
     },
-    label: {
-        fontSize: '20px',
-        display: 'block',
-        color: variables.colorFontSecond,
-        marginBottom: '0.2em',
-    },
-    button: {
-    }
 };
 
 export default AddCurrenciesListStyles;

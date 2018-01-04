@@ -3,12 +3,13 @@ import variables from '../../../styles/variables';
 const NotificationStyles = {
     container: {
         position: 'relative',
-        padding: `${variables.paddingSmall} ${variables.paddingLarge} ${variables.paddingSmall} ${variables.paddingSmall}`,
+        padding: `${variables.paddingSmall} ${variables.paddingLarge} ${variables.paddingSmall} 2.4em`,
         verticalAlign: 'middle',
         borderRadius: variables.borderRadius,
         marginBottom: variables.paddingSmall,
         fontSize: variables.smallFont,
         fontWeight: '400',
+        lineHeight: variables.lineHeightMiddle,
     },
     warningType: {
         color: variables.colorNoteTextWarning,
@@ -20,7 +21,11 @@ const NotificationStyles = {
     },
     warningSign: { color: '#a58613', },
     errorSign: { color: '9e0b0b', },
-    sign: { marginRight: '.5em', },
+    sign: {
+        position: 'absolute',
+        top: '1em',
+        left: variables.paddingSmall,
+    },
     closeButton: {
         cursor: 'pointer',
         fontSize: '1.2em',

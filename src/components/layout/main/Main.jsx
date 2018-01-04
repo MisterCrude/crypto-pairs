@@ -28,10 +28,15 @@ class Main extends React.Component {
             e.preventDefault();
         }
 
+        if (!baseCoin || !targetCoin) {
+            this.showNotification('Please, provide correct Base and Target coins', false);
+            return;
+        }
+
         Api.currencyRate(baseCoin, targetCoin)
             .then(resp => {
                 if (this.hasSamePair(resp, this.state.currenciesPairs)) {
-                    this.showNotification(resp.base, resp.target);
+                    this.showNotification(`You already have ${resp.base}/${resp.target} pair`, true);
                 } else {
                     this.setState(prevState => ({
                         currenciesPairs: [...prevState.currenciesPairs, resp,],
@@ -42,12 +47,13 @@ class Main extends React.Component {
     };
 
     // Show notification
-    showNotification(baseCoin, targetCoin) {
+    showNotification(notificationText, isWarning) {
+        let type = (isWarning) ? NotificationsType.warning : NotificationsType.error;
         let warning = {
-            ...NotificationsType.warning,
+            ...type,
             // Add unique ID for every 'the same pair' notification
             id: HelpersFoo.getRandomNumber(),
-            content: `You already have ${baseCoin}/${targetCoin} pair`,
+            content: notificationText,
         };
 
         this.setState(prevState => {
@@ -104,12 +110,9 @@ class Main extends React.Component {
         this.setState(prevState => ({
             baseCurrencies: [...baseList],
             targetCurrencies: [...targetList],
-            baseCoin: baseList[0].code,
-            targetCoin: targetList[0].code,
         }));
 
-        // TODO: remove setTimeout
-        setTimeout(() => this.addNewCurrenciesPair(), 0)
+        setTimeout(() => this.addNewCurrenciesPair(null, baseList[0].code, targetList[0].code), 0)
     };
 
     render() {

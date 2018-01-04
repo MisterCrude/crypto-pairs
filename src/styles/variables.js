@@ -17,6 +17,7 @@ const variables = {
     white: '#ffffff',
     red: '#d350db',
     gay: '#d6d6d6',
+    lightGay: '#dedede82',
 
 
     // FONT SIZES
@@ -32,6 +33,7 @@ const variables = {
     paddingMiddle: '1.5em',
     paddingLarge: '2em',
     lineHeight: '1.7em',
+    lineHeightMiddle: '1.2em',
 
     // OTHER
     borderRadius: '4px',

@@ -6,6 +6,7 @@ const NotificationListStyles = {
     padding: `0 ${variables.paddingSmall}`,
     bottom: 0,
     left: '50%',
+    zIndex: 4,
     transform: 'translateX(-50%)',
 };
 

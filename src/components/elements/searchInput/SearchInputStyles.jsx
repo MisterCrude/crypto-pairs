@@ -15,8 +15,7 @@ const SearchInputStyles = {
         borderRadius: '30px',
         position: 'relative',
         zIndex: 2,
-    }
-
+    },
 };
 
 export default SearchInputStyles;

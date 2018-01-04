@@ -10,6 +10,7 @@ class SearchInput extends React.Component {
         this.state = {
             inputValue: '',
             showSuggestBox: false,
+            clearInput: true,
         }
     }
 
@@ -24,31 +25,27 @@ class SearchInput extends React.Component {
         // Set selected item from  'SearchInputSuggestBox'
         this.setState({
             inputValue: fullCurrencyName,
+            clearInput: false,
         });
-        this.props.setValue(coinName, true);
+        this.props.setValue(coinName);
     };
 
-    setSuggestBoxStatus = (status) => {
+    focusInputStatus = (isFocus) => {
         setTimeout(() => {
-            this.setState({ showSuggestBox: status, });
-            // if (status) {
-            //     this.setState({ inputValue: '', });
-            // }
+            if (this.state.clearInput) {
+                this.setState({ inputValue: '', });
+            }
+            this.setState({
+                showSuggestBox: isFocus,
+                clearInput: true,
+            });
         }, 10);
     };
-
-    // componentWillReceiveProps(nextProps) {
-    //     // Set default value
-    //     if (nextProps.items.length && !this.state.inputValue) {
-    //         this.setState({
-    //             inputValue: `${nextProps.items[0].shortName} - ${nextProps.items[0].name}`,
-    //         });
-    //     }
-    // }
 
     render() {
         const {
             items,
+            label,
         } = this.props;
 
         return(
@@ -56,11 +53,12 @@ class SearchInput extends React.Component {
                {/* Text field */}
                <input
                    style={SearchInputStyles.input}
-                   onFocus={() => this.setSuggestBoxStatus(true)}
-                   onBlur={() => this.setSuggestBoxStatus(false)}
+                   placeholder={label}
+                   onFocus={() => this.focusInputStatus(true)}
+                   onBlur={() => this.focusInputStatus(false)}
                    onChange={this.handleChange}
                    value={this.state.inputValue}
-                   type="text" />
+                   type='text' />
 
                {/* Suggestions */}
                <SearchInputSuggestBox
