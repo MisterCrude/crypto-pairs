@@ -59,9 +59,20 @@ class AddNewCurrency extends React.Component {
         return (
             <form style={AddCurrenciesListStyles.form}>
                 {/* Base coin */}
-                <SearchInput
-                    items={baseCurrencies}
-                    setValue={setCoin} />
+                <div style={AddCurrenciesListStyles.fieldSet}>
+                    <SearchInput
+                        items={baseCurrencies}
+                        setValue={setCoin} />
+                </div>
+
+
+                {/* Target coin */}
+                <div style={AddCurrenciesListStyles.fieldSet}>
+                    <SearchInput
+                        style={AddCurrenciesListStyles.fieldSet}
+                        items={targetCurrencies}
+                        setValue={setCoin} />
+                </div>
 
 
                 {/*<fieldset style={AddCurrenciesListStyles.fieldSet}>*/}

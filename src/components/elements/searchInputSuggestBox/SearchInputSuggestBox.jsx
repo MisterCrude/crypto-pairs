@@ -1,6 +1,5 @@
 import React from 'react';
 import HelpersFoo from '../../../config/helpers-foo';
-import FontAwesome from 'react-fontawesome';
 
 import SearchInputSuggestBoxStyles from './SearchInputSuggestBoxStyles';
 
@@ -44,10 +43,10 @@ class SearchInputSuggestBox extends React.Component {
         } = this.props;
 
         return(
-           <ul>
-               {suggestBoxStatus &&
-                   this.state.itemsForShowing.map(item =>
+           <ul style={{...SearchInputSuggestBoxStyles.list, display: (suggestBoxStatus) ? 'block' : 'none'}}>
+               {this.state.itemsForShowing.map(item =>
                    <li
+                       style={SearchInputSuggestBoxStyles.item}
                        key={HelpersFoo.getRandomNumber()}
                        onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)}>{item.code} - {item.name}</li>)}
            </ul>

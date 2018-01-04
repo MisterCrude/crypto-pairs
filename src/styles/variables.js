@@ -16,6 +16,7 @@ const variables = {
     green: '#008080',
     white: '#ffffff',
     red: '#d350db',
+    gay: '#d6d6d6',
 
 
     // FONT SIZES

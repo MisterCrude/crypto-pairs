@@ -42,9 +42,10 @@ class SearchInput extends React.Component {
         } = this.props;
 
         return(
-           <fieldset>
+           <fieldset style={SearchInputStyles.fieldSet}>
                {/* Text field */}
                <input
+                   style={SearchInputStyles.input}
                    onFocus={() => this.setSuggestBoxStatus(true)}
                    onBlur={() => this.setSuggestBoxStatus(false)}
                    onChange={this.handleChange}
