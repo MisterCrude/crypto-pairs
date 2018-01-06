@@ -54,6 +54,7 @@ class SearchInputSuggestBox extends React.Component {
 
     moveItemHighlight = (moveDirection) => {
         if (!moveDirection) {
+            this.setState({ activeItem: 0 });
             return;
         }
 
@@ -76,6 +77,8 @@ class SearchInputSuggestBox extends React.Component {
     };
 
     componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
+
         this.calcList(this.props.items, nextProps.inputValue);
         this.moveItemHighlight(nextProps.keyboardButtonsActive);
 

@@ -31,7 +31,10 @@ class SearchInput extends React.Component {
     focusInputStatus = (isFocus) => {
         setTimeout(() => {
             if (this.state.clearInput) {
-                this.setState({ inputValue: '', });
+                this.setState({
+                    inputValue: '',
+                    keyboardButtonsActive: '',
+                });
             }
             this.setState({
                 showSuggestBox: isFocus,
