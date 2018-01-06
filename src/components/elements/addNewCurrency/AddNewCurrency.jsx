@@ -65,7 +65,6 @@ class AddNewCurrency extends React.Component {
                         setValue={(coinName, isBaseCoin=true) => {setCoin(coinName, isBaseCoin)}} />
                 </div>
 
-
                 {/* Target coin */}
                 <div style={AddCurrenciesListStyles.fieldSet}>
                     <SearchInput

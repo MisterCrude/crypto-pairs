@@ -11,6 +11,7 @@ class SearchInput extends React.Component {
             inputValue: '',
             showSuggestBox: false,
             clearInput: true,
+            keyboardButtonsActive: '',
         }
     }
 
@@ -21,13 +22,10 @@ class SearchInput extends React.Component {
         });
     };
 
-    setSelectedItem = (coinName, fullCurrencyName) => {
-        // Set selected item from  'SearchInputSuggestBox'
-        this.setState({
-            inputValue: fullCurrencyName,
-            clearInput: false,
-        });
-        this.props.setValue(coinName);
+    handleKeyboard = (event) => {
+       this.setState({
+           keyboardButtonsActive: event.key,
+       })
     };
 
     focusInputStatus = (isFocus) => {
@@ -40,6 +38,15 @@ class SearchInput extends React.Component {
                 clearInput: true,
             });
         }, 10);
+    };
+
+    setSelectedItem = (coinName, fullCurrencyName) => {
+        // Set selected item from  'SearchInputSuggestBox'
+        this.setState({
+            inputValue: fullCurrencyName,
+            clearInput: false,
+        });
+        this.props.setValue(coinName);
     };
 
     render() {
@@ -57,6 +64,7 @@ class SearchInput extends React.Component {
                    onFocus={() => this.focusInputStatus(true)}
                    onBlur={() => this.focusInputStatus(false)}
                    onChange={this.handleChange}
+                   onKeyUp={this.handleKeyboard}
                    value={this.state.inputValue}
                    type='text' />
 
@@ -65,6 +73,7 @@ class SearchInput extends React.Component {
                    suggestBoxStatus={this.state.showSuggestBox}
                    setSelectedItem={this.setSelectedItem}
                    inputValue={this.state.inputValue}
+                   keyboardButtonsActive={this.state.keyboardButtonsActive}
                    items={items} />
            </fieldset>
         );

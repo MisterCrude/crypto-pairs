@@ -10,7 +10,9 @@ class SearchInputSuggestBox extends React.Component {
         super(props);
         this.state = {
             itemsForShowing: [],
-        }
+            activeItem: 0,
+        };
+        this.listItems = [];
     }
 
     calcList = (items, inputValue) => {
@@ -35,7 +37,10 @@ class SearchInputSuggestBox extends React.Component {
     };
 
     hoverAnimation = (event, isOverEvent) => {
-        let item = event.target;
+        if (!event) {
+            return;
+        }
+        let item = (event.target) ? event.target : event;
         let animationOptions = {
             easing: 'ease-in-out',
             iterations: '1',
@@ -47,8 +52,39 @@ class SearchInputSuggestBox extends React.Component {
         item.animate({backgroundColor}, animationOptions);
     };
 
+    moveItemHighlight = (moveDirection) => {
+        if (!moveDirection) {
+            return;
+        }
+
+        // Is it not last item in list?
+        if (moveDirection === 'ArrowUp') {
+            this.setState(prevState => {
+                let newState = (prevState.activeItem <= 0) ? 0 : prevState.activeItem-1;
+                return {activeItem: newState}
+            });
+        } else if (moveDirection === 'ArrowDown') {
+            this.setState(prevState => {
+                let newState = ((prevState.activeItem+1) >= this.listItems.length) ? prevState.activeItem : prevState.activeItem+1;
+                return  {activeItem: newState}
+            });
+        }
+        // Set styles to current item
+        setTimeout(() => {
+            this.hoverAnimation(this.listItems[this.state.activeItem], true)
+        }, 10);
+    };
+
     componentWillReceiveProps(nextProps) {
         this.calcList(this.props.items, nextProps.inputValue);
+        this.moveItemHighlight(nextProps.keyboardButtonsActive);
+
+        // Highlight first item by default
+        if (this.listItems.length) {
+            setTimeout(() => {
+                this.hoverAnimation(this.listItems[this.state.activeItem], true)
+            }, 10);
+        }
     }
 
     render() {
@@ -58,16 +94,20 @@ class SearchInputSuggestBox extends React.Component {
 
         return(
             <ul style={{...SearchInputSuggestBoxStyles.list, display: (suggestBoxStatus) ? 'block' : 'none'}}>
-                {this.state.itemsForShowing.map(item =>
+                {this.state.itemsForShowing.map((item, i) =>
                     <li
                         style={{...SearchInputSuggestBoxStyles.item, cursor: 'pointer'}}
                         key={HelpersFoo.getRandomNumber()}
+                        ref={(el => this.listItems[i] = el)}
                         onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)}
+                        onFocus={(e) => this.hoverAnimation(e, true)}
+                        onBlur={(e) => this.hoverAnimation(e, false)}
                         onMouseOver={(e) => this.hoverAnimation(e, true)}
                         onMouseLeave={(e) => this.hoverAnimation(e, false)} >{item.code} - {item.name}</li>)}
 
                     {/* No results */}
-                    {this.state.itemsForShowing.length == 0 && <li style={SearchInputSuggestBoxStyles.item}>No results</li>}
+                    {this.state.itemsForShowing.length == 0 &&
+                        <li style={SearchInputSuggestBoxStyles.item}>No results</li>}
             </ul>
         );
     }
