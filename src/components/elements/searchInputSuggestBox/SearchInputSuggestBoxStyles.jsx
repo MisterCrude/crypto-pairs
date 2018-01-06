@@ -18,6 +18,10 @@ const SearchInputSuggestBoxStyles = {
     item: {
         padding: '0.5em 0.7em',
     },
+    itemPointer: {
+        cursor: 'pointer',
+        padding: '0.5em 0.7em',
+    },
 };
 
 export default SearchInputSuggestBoxStyles;

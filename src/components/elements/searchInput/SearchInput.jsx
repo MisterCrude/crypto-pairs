@@ -73,7 +73,7 @@ class SearchInput extends React.Component {
 
                {/* Suggestions */}
                <SearchInputSuggestBox
-                   suggestBoxStatus={this.state.showSuggestBox}
+                   showSuggestBox={this.state.showSuggestBox}
                    setSelectedItem={this.setSelectedItem}
                    inputValue={this.state.inputValue}
                    keyboardButtonsActive={this.state.keyboardButtonsActive}

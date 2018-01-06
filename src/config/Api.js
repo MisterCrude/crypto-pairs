@@ -36,7 +36,7 @@ class Api {
             .then(resp => resp.json())
             .then(resp => resp['ticker'])
             .then(resp => ({
-                id: HelpersFoo.getRandomNumber(),
+                id: HelpersFoo.getRandomNumber('api'),
                 base: resp.base,
                 target: resp.target,
                 price: resp.price,

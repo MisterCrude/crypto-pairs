@@ -52,7 +52,7 @@ class Main extends React.Component {
         let warning = {
             ...type,
             // Add unique ID for every 'the same pair' notification
-            id: HelpersFoo.getRandomNumber(),
+            id: HelpersFoo.getRandomNumber('main'),
             content: notificationText,
         };
 

@@ -15,6 +15,20 @@ class SearchInputSuggestBox extends React.Component {
         this.listItems = [];
     }
 
+    setActiveItemState = (newState) => {
+        this.setState({activeItem: newState,}, () => this.setHoverStyle(this.state.activeItem))
+    };
+
+    setSelectedItem = (coinName, fullCurrencyName) => {
+        this.props.setSelectedItem(coinName, fullCurrencyName)
+    };
+
+    setHoverStyle = () => {
+        this.listItems.forEach((item, index) => {
+            item.style.backgroundColor = (this.state.activeItem === index) ? variables.lightGay : variables.white;
+        });
+    };
+
     calcList = (items, inputValue) => {
         // Create regexp by using 'inputValue' from parent
         let reg = new RegExp(inputValue.toLocaleLowerCase());
@@ -25,77 +39,53 @@ class SearchInputSuggestBox extends React.Component {
 
         // Update state
         if (inputValue.search('-')+1) {
-             return;
+            return;
         }
         this.setState({
             itemsForShowing: newItems,
         });
     };
 
-    setSelectedItem = (coinName, fullCurrencyName) => {
-        this.props.setSelectedItem(coinName, fullCurrencyName)
-    };
+    selectItemByArrows = (moveDirection) => {
+        let newState = 0;
 
-    setHoverStyle = (itemNumber) => {
-        if (!itemNumber && itemNumber != 0) {
-            return;
-        }
-
-        this.listItems.forEach((item, index )=> {
-            item.style.backgroundColor = (itemNumber === index) ? variables.lightGay : variables.white;
-        });
-    };
-
-    moveItemHighlight = (moveDirection) => {
         if (!moveDirection) {
-            this.setState({ activeItem: 0 });
             return;
         }
 
         // Is it not last item in list?
         if (moveDirection === 'ArrowUp') {
-            this.setState(prevState => {
-                let newState = (prevState.activeItem <= 0) ? 0 : prevState.activeItem-1;
-                return { activeItem: newState };
-            });
+            newState = (this.state.activeItem <= 0) ? 0 : this.state.activeItem-1;
         } else if (moveDirection === 'ArrowDown') {
-            this.setState(prevState => {
-                let newState = ((prevState.activeItem+1) >= this.listItems.length) ? prevState.activeItem : prevState.activeItem+1;
-                return  { activeItem: newState };
-            });
+            newState = ((this.state.activeItem+1) >= this.listItems.length) ? this.state.activeItem : this.state.activeItem+1;
         }
-        // Set styles to current item
-        setTimeout(() => {
-            this.setHoverStyle(this.state.activeItem);
-        }, 10);
+        this.setActiveItemState(newState);
     };
 
     componentWillReceiveProps(nextProps) {
         this.calcList(this.props.items, nextProps.inputValue);
-        this.moveItemHighlight(nextProps.keyboardButtonsActive);
-
-        // Highlight first item by default
-        // if (this.listItems.length) {
-        //     setTimeout(() => {
-        //         this.setHoverStyle(this.state.activeItem)
-        //     }, 10);
+        this.selectItemByArrows(nextProps.keyboardButtonsActive);
+        // if (nextProps.showSuggestBox) {
+        //     setInterval(() => this.setHoverStyle(), 10)
+        // }  else {
+        //     this.setActiveItemState(0)
         // }
     }
 
     render() {
         const {
-            suggestBoxStatus,
+            showSuggestBox,
         } = this.props;
 
         return(
-            <ul style={{...SearchInputSuggestBoxStyles.list, display: (suggestBoxStatus) ? 'block' : 'none'}}>
+            <ul style={{...SearchInputSuggestBoxStyles.list, display: (showSuggestBox) ? 'block' : 'none'}}>
                 {this.state.itemsForShowing.map((item, index) =>
                     <li
-                        style={{...SearchInputSuggestBoxStyles.item, cursor: 'pointer'}}
-                        key={HelpersFoo.getRandomNumber()}
+                        style={SearchInputSuggestBoxStyles.itemPointer}
+                        key={HelpersFoo.getRandomNumber('suggestbox')}
                         ref={(el => this.listItems[index] = el)}
-                        onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)}
-                        onMouseOver={() => this.setHoverStyle(index)} >{item.code} - {item.name}</li>)}
+                        onMouseEnter={() => this.setActiveItemState(index)}
+                        onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)} >{item.code} - {item.name}</li>)}
 
                     {/* No results */}
                     {this.state.itemsForShowing.length == 0 &&
