@@ -23,9 +23,17 @@ class SearchInput extends React.Component {
     };
 
     handleKeyboard = (event) => {
-       this.setState({
+        if (event.key === 'Enter') {
+            event.preventDefault();
+
+            this.setState(prevState => ({
+                showSuggestBox: !prevState.showSuggestBox
+            })) ;
+        }
+
+        this.setState({
            keyboardButtonsActive: event.key,
-       })
+        });
     };
 
     focusInputStatus = (isFocus) => {
@@ -65,9 +73,10 @@ class SearchInput extends React.Component {
                    style={SearchInputStyles.input}
                    placeholder={label}
                    onFocus={() => this.focusInputStatus(true)}
+                   onClick={() => this.focusInputStatus(true)}
                    onBlur={() => this.focusInputStatus(false)}
                    onChange={this.handleChange}
-                   onKeyUp={this.handleKeyboard}
+                   onKeyDown={this.handleKeyboard}
                    value={this.state.inputValue}
                    type='text' />
 
