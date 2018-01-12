@@ -99,7 +99,7 @@ class SearchInputSuggestBox extends React.Component {
                         onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)} >{item.code} - {item.name}</li>)}
 
                     {/* No results */}
-                    {this.state.itemsForShowing.length == 0 &&
+                    {this.state.itemsForShowing.length === 0 &&
                         <li style={SearchInputSuggestBoxStyles.item}>No results</li>}
             </ul>
         );

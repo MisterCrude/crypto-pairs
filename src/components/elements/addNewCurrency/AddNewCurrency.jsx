@@ -42,6 +42,8 @@ class AddNewCurrency extends React.Component {
                 animationOptions.duration = 800;
                 cssProperty = {backgroundPosition};
                 break;
+            default:
+                break;
         }
 
         button.animate({...cssProperty}, animationOptions);

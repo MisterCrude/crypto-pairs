@@ -1,6 +1,6 @@
 const AppConfig = {
     // Detect prod or dev environment
-    isDev: (window && window.location && window.location.hostname && window.location.hostname == 'localhost'),
+    isDev: (window && window.location && window.location.hostname && window.location.hostname === 'localhost'),
 
     // External API endpoint
     apiUrl: 'https://www.cryptonator.com/api',

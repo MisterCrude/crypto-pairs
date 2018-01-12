@@ -78,7 +78,7 @@ class Main extends React.Component {
     // Remove currencies pair row with
     removeCurrenciesPair = (id) => {
         this.setState(prevState => ({
-            currenciesPairs: prevState.currenciesPairs.filter(item => item.id != id)
+            currenciesPairs: prevState.currenciesPairs.filter(item => item.id !== id)
         }));
     };
 
