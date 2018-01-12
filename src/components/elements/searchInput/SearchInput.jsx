@@ -28,7 +28,7 @@ class SearchInput extends React.Component {
 
             this.setState(prevState => ({
                 showSuggestBox: !prevState.showSuggestBox
-            })) ;
+            }));
         }
 
         this.setState({
@@ -59,6 +59,14 @@ class SearchInput extends React.Component {
         });
         this.props.setValue(coinName);
     };
+
+    componentWillReceiveProps(nextProps) {
+       if (nextProps.clearInput) {
+           this.setState({
+               inputValue: '',
+           });
+       }
+    }
 
     render() {
         const {

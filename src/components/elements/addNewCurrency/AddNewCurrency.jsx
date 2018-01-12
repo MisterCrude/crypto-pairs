@@ -7,6 +7,13 @@ import AddCurrenciesListStyles from './AddNewCurrencyStyles';
 
 
 class AddNewCurrency extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            clearInput: false,
+        };
+    }
+
     buttonAnimation(e, eventType, isFirstPartEvent) {
         let button = e.target;
         let animationOptions = {
@@ -49,10 +56,19 @@ class AddNewCurrency extends React.Component {
         button.animate({...cssProperty}, animationOptions);
     }
 
+    addNewCurrenciesPair = (event) => {
+        this.props.addNewCurrenciesPair(event);
+        this.setState({
+            clearInput: true,
+        });
+        setTimeout(() => this.setState({
+            clearInput: false,
+        }), 10);
+    };
+
     render() {
         const {
             setCoin,
-            addNewCurrenciesPair,
             baseCurrencies,
             targetCurrencies
         } = this.props;
@@ -63,6 +79,7 @@ class AddNewCurrency extends React.Component {
                 <div style={AddCurrenciesListStyles.fieldSet}>
                     <SearchInput
                         label='Base coin'
+                        clearInput={this.state.clearInput}
                         items={baseCurrencies}
                         setValue={(coinName, isBaseCoin=true) => {setCoin(coinName, isBaseCoin)}} />
                 </div>
@@ -71,6 +88,7 @@ class AddNewCurrency extends React.Component {
                 <div style={AddCurrenciesListStyles.fieldSet}>
                     <SearchInput
                         label='Target coin'
+                        clearInput={this.state.clearInput}
                         items={targetCurrencies}
                         setValue={(coinName, isBaseCoin=false) => {setCoin(coinName, isBaseCoin)}} />
                 </div>
@@ -82,7 +100,7 @@ class AddNewCurrency extends React.Component {
                     onMouseLeave={(e) => this.buttonAnimation(e, 'hover', false)}
                     onMouseDown={(e) => this.buttonAnimation(e, 'click', true)}
                     onMouseUp={(e) => this.buttonAnimation(e, 'click', false)}
-                    onClick={addNewCurrenciesPair}>
+                    onClick={this.addNewCurrenciesPair}>
                     Add new pair +
                 </button>
             </form>

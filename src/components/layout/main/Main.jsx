@@ -40,6 +40,8 @@ class Main extends React.Component {
                 } else {
                     this.setState(prevState => ({
                         currenciesPairs: [...prevState.currenciesPairs, resp,],
+                        baseCoin: '',
+                        targetCoin: '',
                     }));
                 }
             })

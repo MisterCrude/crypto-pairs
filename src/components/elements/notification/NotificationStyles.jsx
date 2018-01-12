@@ -3,6 +3,8 @@ import variables from '../../../styles/variables';
 const NotificationStyles = {
     wrapper: {
         overflow: 'hidden',
+        display: 'flex',
+        justifyContent: 'center',
     },
     container: {
         height: '70px',
@@ -29,7 +31,7 @@ const NotificationStyles = {
     warningSign: { color: '#a58613', },
     errorSign: { color: '9e0b0b', },
     sign: {
-        marginRight: '0.5em',
+        transform: 'translateX(-0.8em)'
     },
     closeButton: {
         cursor: 'pointer',
