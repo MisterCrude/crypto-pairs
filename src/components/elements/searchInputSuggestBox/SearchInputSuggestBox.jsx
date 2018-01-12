@@ -54,8 +54,6 @@ class SearchInputSuggestBox extends React.Component {
             return;
         }
 
-        console.log(moveDirection);
-
         // Is it not last item in list?
         if (moveDirection === 'ArrowUp') {
             newState = (this.state.activeItem <= 0) ? 0 : this.state.activeItem-1;
