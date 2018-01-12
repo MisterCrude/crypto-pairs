@@ -1,0 +1,21 @@
+.animation-enter {
+    opacity: 0;
+    height: 0;
+}
+
+.animation-enter.animation-enter-active {
+    opacity: 1;
+    height: calc(70px + 1em);
+    transition: all 300ms ease-in-out;
+}
+
+.animation-leave {
+    opacity: 1;
+    height: calc(70px + 1em);
+}
+
+.animation-leave.animation-leave-active {
+    opacity: 0;
+    height: 0;
+    transition: all 300ms ease-in-out;
+}

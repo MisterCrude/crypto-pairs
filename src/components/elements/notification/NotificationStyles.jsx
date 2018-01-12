@@ -1,15 +1,22 @@
 import variables from '../../../styles/variables';
 
 const NotificationStyles = {
+    wrapper: {
+        overflow: 'hidden',
+    },
     container: {
+        height: '70px',
+        display: 'flex',
+        alignItems: 'center',
         position: 'relative',
-        padding: `${variables.paddingSmall} ${variables.paddingLarge} ${variables.paddingSmall} 2.4em`,
+        justifyContent: 'center',
+        padding: `${variables.paddingSmall} ${variables.paddingLarge}`,
         verticalAlign: 'middle',
         borderRadius: variables.borderRadius,
-        marginBottom: variables.paddingSmall,
         fontSize: variables.smallFont,
         fontWeight: '400',
         lineHeight: variables.lineHeightMiddle,
+        marginBottom: variables.paddingSmall,
     },
     warningType: {
         color: variables.colorNoteTextWarning,
@@ -22,9 +29,7 @@ const NotificationStyles = {
     warningSign: { color: '#a58613', },
     errorSign: { color: '9e0b0b', },
     sign: {
-        position: 'absolute',
-        top: '1em',
-        left: variables.paddingSmall,
+        marginRight: '0.5em',
     },
     closeButton: {
         cursor: 'pointer',
