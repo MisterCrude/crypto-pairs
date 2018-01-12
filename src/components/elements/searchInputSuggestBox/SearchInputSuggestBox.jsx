@@ -1,5 +1,4 @@
 import React from 'react';
-import HelpersFoo from '../../../config/helpers-foo';
 import variables from '../../../styles/variables';
 
 import SearchInputSuggestBoxStyles from './SearchInputSuggestBoxStyles';
@@ -93,7 +92,7 @@ class SearchInputSuggestBox extends React.Component {
                 {this.state.itemsForShowing.map((item, index) =>
                     <li
                         style={SearchInputSuggestBoxStyles.itemPointer}
-                        key={HelpersFoo.getRandomNumber('suggestbox')}
+                        key={item.code}
                         ref={(el => this.listItems[index] = {element: el, code: item.code, fullName: `${item.code} - ${item.name}`})}
                         onMouseEnter={() => this.setActiveItemState(index)}
                         onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)} >{item.code} - {item.name}</li>)}
