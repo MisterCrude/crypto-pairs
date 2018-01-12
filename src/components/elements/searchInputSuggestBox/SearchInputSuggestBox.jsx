@@ -19,18 +19,14 @@ class SearchInputSuggestBox extends React.Component {
         this.setState({activeItem: newState,}, () => this.setHoverStyle(this.state.activeItem))
     };
 
-    setSelectedItem = (coinName, fullCurrencyName) => {
-        this.props.setSelectedItem(coinName, fullCurrencyName)
-    };
-
     setHoverStyle = () => {
         if (!this.listItems.length) {
             return;
         }
 
         this.listItems.forEach((item, index) => {
-            if (item.element === null) return;
-            item.element.style.backgroundColor = (this.state.activeItem === index) ? variables.lightGay : variables.white;
+            if (item === null) return;
+            item.style.backgroundColor = (this.state.activeItem === index) ? variables.lightGay : variables.white;
         });
     };
 
@@ -51,12 +47,14 @@ class SearchInputSuggestBox extends React.Component {
         });
     };
 
-    selectItemByArrows = (moveDirection) => {
+    selectItemInCoinList = (moveDirection) => {
         let newState = 0;
 
         if (!moveDirection) {
             return;
         }
+
+        console.log(moveDirection);
 
         // Is it not last item in list?
         if (moveDirection === 'ArrowUp') {
@@ -64,9 +62,8 @@ class SearchInputSuggestBox extends React.Component {
         } else if (moveDirection === 'ArrowDown') {
             newState = ((this.state.activeItem+1) >= this.listItems.length) ? this.state.activeItem : this.state.activeItem+1;
         } else if (moveDirection === 'Enter') {
-            // let coin = {...this.listItems[this.state.activeItem]};
-            // this.setSelectedItem('BTC', 'sdsd')
-            // console.log('Enter');
+            let coin = this.listItems[this.state.activeItem];
+            coin.click();
         }
         this.setActiveItemState(newState);
     };
@@ -74,28 +71,36 @@ class SearchInputSuggestBox extends React.Component {
     componentWillReceiveProps(nextProps) {
         this.calcList(this.props.items, nextProps.inputValue);
 
-        this.selectItemByArrows(nextProps.keyboardButtonsActive);
+        // mark first item in list
         if (nextProps.showSuggestBox) {
             setTimeout(() => this.setHoverStyle(), 10)
         } else {
             this.setActiveItemState(0)
         }
-
+        // open drop down
         this.setState({
             showSuggestBox: nextProps.showSuggestBox,
-        })
+        });
+        if (this.state.showSuggestBox === nextProps.showSuggestBox && nextProps.keyboardButtonsActive === 'Enter') {
+            return;
+        }
+        this.selectItemInCoinList(nextProps.keyboardButtonsActive);
     }
 
     render() {
+        const {
+            setSelectedItem,
+        } = this.props;
+
         return(
             <ul style={{...SearchInputSuggestBoxStyles.list, display: (this.state.showSuggestBox) ? 'block' : 'none'}}>
                 {this.state.itemsForShowing.map((item, index) =>
                     <li
                         style={SearchInputSuggestBoxStyles.itemPointer}
                         key={item.code}
-                        ref={(el => this.listItems[index] = {element: el, code: item.code, fullName: `${item.code} - ${item.name}`})}
+                        ref={(el => this.listItems[index] = el)}
                         onMouseEnter={() => this.setActiveItemState(index)}
-                        onClick={() => this.setSelectedItem(item.code, `${item.code} - ${item.name}`)} >{item.code} - {item.name}</li>)}
+                        onClick={() => setSelectedItem(item.code, `${item.code} - ${item.name}`)} >{item.code} - {item.name}</li>)}
 
                     {/* No results */}
                     {this.state.itemsForShowing.length === 0 &&

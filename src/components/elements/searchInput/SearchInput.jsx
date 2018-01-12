@@ -23,6 +23,10 @@ class SearchInput extends React.Component {
     };
 
     handleKeyboard = (event) => {
+        this.setState({
+            keyboardButtonsActive: event.key,
+        });
+
         if (event.key === 'Enter') {
             event.preventDefault();
 
@@ -30,10 +34,6 @@ class SearchInput extends React.Component {
                 showSuggestBox: !prevState.showSuggestBox
             }));
         }
-
-        this.setState({
-           keyboardButtonsActive: event.key,
-        });
     };
 
     focusInputStatus = (isFocus) => {
@@ -53,6 +53,7 @@ class SearchInput extends React.Component {
 
     setSelectedItem = (coinName, fullCurrencyName) => {
         // Set selected item from  'SearchInputSuggestBox'
+
         this.setState({
             inputValue: fullCurrencyName,
             clearInput: false,
