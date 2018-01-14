@@ -23,6 +23,30 @@ class Api {
         return result;
     }
 
+    _prettyPriceFormat(price) {
+        let convertedPrice = price;
+
+        if (convertedPrice > 1) {
+            convertedPrice = (+convertedPrice).toFixed(4);
+            convertedPrice = convertedPrice.toString();
+            convertedPrice = convertedPrice.split('.');
+
+            let firstPart = convertedPrice[0];
+            firstPart = firstPart.split('').reverse().join('');
+            firstPart = firstPart.match(/.{1,3}/g);
+
+            firstPart = firstPart.map(item => {
+                return item+',';
+            });
+
+            firstPart = firstPart.join('').split('').reverse();
+            firstPart.shift();
+            convertedPrice = `${firstPart.join('')}.${convertedPrice[1]}`;
+        }
+
+        return convertedPrice;
+    }
+
     get getBaseCurrenciesList() {
         return [ ...AppConfig.currencies.crypto ]
     }
@@ -45,7 +69,7 @@ class Api {
                 id: HelpersFoo.getRandomNumber('api'),
                 base: resp.base,
                 target: resp.target,
-                price: resp.price,
+                price: this._prettyPriceFormat(resp.price),
                 change: resp.change,
                 changePercents: this._countPercentage(resp.change, resp.price),
                 changeUp: !this._changeUpDetection(resp.change),
