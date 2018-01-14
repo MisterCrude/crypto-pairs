@@ -29,6 +29,7 @@ class CurrenciesPairs extends React.Component {
                                 hideRemoveButton={currenciesPairs.length === 1}
                                 removeCurrenciesPair={() => removeCurrenciesPair(currenciesRow.id)}/>)}
 
+                        {/* Throbber */}
                         {showThrobber &&
                             <tr>
                                 <td

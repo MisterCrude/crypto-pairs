@@ -63,13 +63,13 @@ class CurrencyRow extends React.Component {
         let changeIndicator = {
             color: changeUp ? variables.green : variables.red,
             icon: changeUp ? 'angle-up' : 'angle-down',
-            styles: changeUp ? '' : { position: 'relative', top: '3px' },
+            styles: changeUp ? '' : { position: 'relative', top: '1px' },
         };
         return (
             <tr style={{...this.state.animateStyle, ...CurrencyRowStyles.row}}>
                 <td>
                     <span style={CurrencyRowStyles.text}>
-                        {base}/{target}
+                        {base} / {target}
                     </span>
                 </td>
                 <td>
