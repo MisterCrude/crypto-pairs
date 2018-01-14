@@ -7,16 +7,20 @@ class Api {
     }
 
     _changeUpDetection(change) {
-        return /-/.test(change);
+        return change < 0;
     }
 
     _countPercentage(change, price) {
-        console.log(change, price);
+        let percents = (change/(price/100));
+        let result = '';
 
-        let pr = parseInt(price, 10);
-        let ch = parseInt(change, 10);
-
-        return (ch/(pr/100)).toFixed(2);
+        if (percents < 0) {
+            result = percents.toString().replace('-', '');
+            result = (result < 1) ? '> 1' : (+result).toFixed(2);
+        } else {
+            result = percents.toFixed(2);
+        }
+        return result;
     }
 
     get getBaseCurrenciesList() {
