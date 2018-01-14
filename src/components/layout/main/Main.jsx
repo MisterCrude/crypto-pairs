@@ -19,6 +19,7 @@ class Main extends React.Component {
             baseCoin: '',
             targetCoin: '',
             notifications: [],
+            showThrobber: true,
         };
     }
 
@@ -33,6 +34,11 @@ class Main extends React.Component {
             return;
         }
 
+        // Show throbber
+        this.setState({
+            showThrobber: true,
+        });
+
         Api.currencyRate(baseCoin, targetCoin)
             .then(resp => {
                 if (this.hasSamePair(resp, this.state.currenciesPairs)) {
@@ -40,6 +46,7 @@ class Main extends React.Component {
                 } else {
                     this.setState(prevState => ({
                         currenciesPairs: [...prevState.currenciesPairs, resp,],
+                        showThrobber: false,
                         baseCoin: '',
                         targetCoin: '',
                     }));
@@ -129,6 +136,7 @@ class Main extends React.Component {
                 {/* Currencies list */}
                 <CurrenciesPairs
                     currenciesPairs={currenciesPairs}
+                    showThrobber={this.state.showThrobber}
                     removeCurrenciesPair={this.removeCurrenciesPair} />
 
                 {/* Currencies list */}

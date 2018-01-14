@@ -8,6 +8,7 @@ import CurrenciesPairsStyles from './CurrenciesPairsStyles';
 class CurrenciesPairs extends React.Component {
     render () {
         const {
+            showThrobber,
             currenciesPairs,
             removeCurrenciesPair,
         } = this.props;
@@ -16,29 +17,29 @@ class CurrenciesPairs extends React.Component {
                 <table style={CurrenciesPairsStyles.table}>
                     <tbody>
                         {/* Currency row */}
-                        {currenciesPairs.length ? (
-                            currenciesPairs.map((currenciesRow) =>
-                                <CurrencyRow
-                                    key={currenciesRow.id}
-                                    change={currenciesRow.change}
-                                    changeUp={currenciesRow.changeUp}
-                                    changePercents={currenciesRow.changePercents}
-                                    base={currenciesRow.base}
-                                    target={currenciesRow.target}
-                                    price={currenciesRow.price}
-                                    hideRemoveButton={currenciesPairs.length === 1}
-                                    removeCurrenciesPair={() => removeCurrenciesPair(currenciesRow.id)}/>
-                            )
-                        ) : (
+                        {currenciesPairs.map((currenciesRow) =>
+                            <CurrencyRow
+                                key={currenciesRow.id}
+                                change={currenciesRow.change}
+                                changeUp={currenciesRow.changeUp}
+                                changePercents={currenciesRow.changePercents}
+                                base={currenciesRow.base}
+                                target={currenciesRow.target}
+                                price={currenciesRow.price}
+                                hideRemoveButton={currenciesPairs.length === 1}
+                                removeCurrenciesPair={() => removeCurrenciesPair(currenciesRow.id)}/>)}
+
+                        {showThrobber &&
                             <tr>
-                                <td  style={CurrenciesPairsStyles.spinnerWrapper}>
+                                <td
+                                    colSpan='5'
+                                    style={CurrenciesPairsStyles.spinnerWrapper}>
                                     <FontAwesome
                                         style={CurrenciesPairsStyles.spinner}
                                         name='spinner'
                                         spin />
                                 </td>
-                            </tr>
-                        )}
+                            </tr>}
                     </tbody>
                 </table>
             </div>

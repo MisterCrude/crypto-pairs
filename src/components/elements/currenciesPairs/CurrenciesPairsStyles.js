@@ -7,7 +7,7 @@ const CurrenciesPairsStyles = {
     },
     spinnerWrapper: {
         textAlign: 'center',
-        lineHeight: '3em',
+        lineHeight: '3.1em',
     },
     spinner: {
         verticalAlign: 'middle',

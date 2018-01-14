@@ -9,7 +9,7 @@ const CurrencyRowStyles = {
         verticalAlign: 'middle',
     },
     text: {
-        fontSize: variables.middleFont,
+        fontSize: variables.largeFont,
         fontWeight: '300',
         verticalAlign: 'middle',
     },
