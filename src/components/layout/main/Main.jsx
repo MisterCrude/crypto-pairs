@@ -34,6 +34,18 @@ class Main extends React.Component {
             return;
         }
 
+        // Check if you have added same pair
+        if (this.hasSamePair({base: baseCoin, target: targetCoin}, this.state.currenciesPairs)) {
+            this.showNotification(`You already have ${baseCoin}/${targetCoin} pair`, true);
+
+            // Clear inputs with coins
+            this.setState({
+                baseCoin: '',
+                targetCoin: '',
+            });
+            return;
+        }
+
         // Show throbber
         this.setState({
             showThrobber: true,
@@ -41,16 +53,12 @@ class Main extends React.Component {
 
         Api.currencyRate(baseCoin, targetCoin)
             .then(resp => {
-                if (this.hasSamePair(resp, this.state.currenciesPairs)) {
-                    this.showNotification(`You already have ${resp.base}/${resp.target} pair`, true);
-                } else {
-                    this.setState(prevState => ({
-                        currenciesPairs: [...prevState.currenciesPairs, resp,],
-                        showThrobber: false,
-                        baseCoin: '',
-                        targetCoin: '',
-                    }));
-                }
+                this.setState(prevState => ({
+                    currenciesPairs: [...prevState.currenciesPairs, resp,],
+                    showThrobber: false,
+                    baseCoin: '',
+                    targetCoin: '',
+                }));
             })
             .catch(error => console.error(error));
     };

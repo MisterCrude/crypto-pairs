@@ -21,6 +21,7 @@ const variables = {
 
 
     // FONT SIZES
+    extraSmallFont: '1em',
     smallFont: '1.3em',
     middleFont: '1.5em',
     largeFont: '2em',

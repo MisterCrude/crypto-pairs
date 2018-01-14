@@ -15,7 +15,7 @@ const NotificationStyles = {
         padding: `${variables.paddingSmall} ${variables.paddingLarge}`,
         verticalAlign: 'middle',
         borderRadius: variables.borderRadius,
-        fontSize: variables.smallFont,
+        fontSize: variables.extraSmallFont,
         fontWeight: '400',
         lineHeight: variables.lineHeightMiddle,
         marginBottom: variables.paddingSmall,
