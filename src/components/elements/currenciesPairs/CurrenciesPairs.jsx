@@ -7,7 +7,10 @@ import CurrenciesPairsStyles from './CurrenciesPairsStyles';
 
 class CurrenciesPairs extends React.Component {
     render () {
-        const { currenciesPairs, removeCurrenciesPair } = this.props;
+        const {
+            currenciesPairs,
+            removeCurrenciesPair,
+        } = this.props;
         return (
             <div>
                 <table style={CurrenciesPairsStyles.table}>

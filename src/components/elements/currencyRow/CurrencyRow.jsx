@@ -63,6 +63,7 @@ class CurrencyRow extends React.Component {
         let changeIndicator = {
             color: changeUp ? variables.green : variables.red,
             icon: changeUp ? 'angle-up' : 'angle-down',
+            styles: changeUp ? '' : { position: 'relative', top: '3px' },
         };
         return (
             <tr style={{...this.state.animateStyle, ...CurrencyRowStyles.row}}>
@@ -79,12 +80,12 @@ class CurrencyRow extends React.Component {
                 <td style={helpers.textCenter}>
                     {/* Arrow indicator */}
                     <span style={CurrencyRowStyles.text}>
-                        <FontAwesome style={{...CurrencyRowStyles.arrow, color: changeIndicator.color}} name={changeIndicator.icon} />
+                        <FontAwesome style={{...CurrencyRowStyles.arrow, color: changeIndicator.color, ...changeIndicator.styles}} name={changeIndicator.icon} />
                     </span>
                 </td>
                 <td>
                     {/* Change */}
-                    <span style={{color: changeIndicator.color, ...CurrencyRowStyles.text}}>{change}</span>
+                    <span style={{color: changeIndicator.color, ...CurrencyRowStyles.smallText}}>{change}</span>
 
                     {/* Change percents */}
                     <span style={CurrencyRowStyles.smallText}>({changePercents}%)</span>

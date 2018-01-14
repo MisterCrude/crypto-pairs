@@ -11,6 +11,8 @@ class Api {
     }
 
     _countPercentage(change, price) {
+        console.log(change, price);
+
         let pr = parseInt(price, 10);
         let ch = parseInt(change, 10);
 
