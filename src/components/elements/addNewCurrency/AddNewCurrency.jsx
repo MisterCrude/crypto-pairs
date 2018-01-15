@@ -101,7 +101,7 @@ class AddNewCurrency extends React.Component {
                     onMouseDown={(e) => this.buttonAnimation(e, 'click', true)}
                     onMouseUp={(e) => this.buttonAnimation(e, 'click', false)}
                     onClick={this.addNewCurrenciesPair}>
-                    Add new pair +
+                    add pair +
                 </button>
             </form>
         );
