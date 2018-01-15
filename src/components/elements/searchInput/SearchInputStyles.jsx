@@ -10,6 +10,7 @@ const SearchInputStyles = {
     input: {
         border: `1px solid ${variables.gay}`,
         fontSize: '17px',
+        width: '100%',
         fontWeight: 300,
         padding: '13px 23px',
         borderRadius: '30px',

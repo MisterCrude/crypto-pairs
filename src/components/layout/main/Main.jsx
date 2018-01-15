@@ -31,6 +31,12 @@ class Main extends React.Component {
 
         if (!baseCoin || !targetCoin) {
             this.showNotification('Please, provide correct Base and Target coins', false);
+
+            // Clear inputs with coins
+            this.setState({
+                baseCoin: '',
+                targetCoin: '',
+            });
             return;
         }
 
@@ -102,9 +108,13 @@ class Main extends React.Component {
     // Set currencies list on selects
     setCoin = (coinName, isBaseCoin) => {
         if (isBaseCoin) {
-            this.setState({ baseCoin: coinName });
+            this.setState({
+                baseCoin: coinName,
+            });
         } else {
-            this.setState({ targetCoin: coinName });
+            this.setState({
+                targetCoin: coinName
+            });
         }
     };
 
@@ -133,24 +143,18 @@ class Main extends React.Component {
     };
 
     render() {
-        const {
-            baseCurrencies,
-            targetCurrencies,
-            currenciesPairs
-        } = this.state;
-
         return (
             <main style={MainStyles}>
                 {/* Currencies list */}
                 <CurrenciesPairs
-                    currenciesPairs={currenciesPairs}
+                    currenciesPairs={this.state.currenciesPairs}
                     showThrobber={this.state.showThrobber}
                     removeCurrenciesPair={this.removeCurrenciesPair} />
 
                 {/* Currencies list */}
                 <AddNewCurrency
-                    baseCurrencies={baseCurrencies}
-                    targetCurrencies={targetCurrencies}
+                    baseCurrencies={this.state.baseCurrencies}
+                    targetCurrencies={this.state.targetCurrencies}
                     addNewCurrenciesPair={this.addNewCurrenciesPair}
                     setCoin={this.setCoin} />
 
