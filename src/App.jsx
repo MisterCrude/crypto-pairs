@@ -8,20 +8,36 @@ import AppStyles from './AppStyles';
 
 
 class App extends React.Component {
-  render() {
-    return (
-      <section style={AppStyles}>
-        {/* Header */}
-        <Header />
+    constructor(props) {
+        super(props);
+        this.state = {
+            windowWidth: 0,
+        }
+    }
 
-        {/* Main */}
-        <Main />
+    getWindowWidth = () => {
+        this.setState({ windowWidth: window.innerWidth });
+    };
 
-        {/* Footer */}
-        <Footer />
-      </section>
-    );
-  }
+    componentDidMount() {
+        this.getWindowWidth();
+        window.addEventListener('resize', this.getWindowWidth);
+    }
+
+    render() {
+        return (
+            <section style={AppStyles}>
+                {/* Header */}
+                <Header windowWidth={this.state.windowWidth} />
+
+                {/* Main */}
+                <Main windowWidth={this.state.windowWidth} />
+
+                {/* Footer */}
+                <Footer />
+            </section>
+        );
+    }
 }
 
 export default App;

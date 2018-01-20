@@ -2,6 +2,7 @@ import React from 'react';
 import buttons from '../../../styles/buttons';
 import variables from '../../../styles/variables';
 import SearchInput from '../../elements/searchInput/SearchInput';
+import AppConfig from '../../../config/app-config';
 
 import AddCurrenciesListStyles from './AddNewCurrencyStyles';
 
@@ -70,13 +71,15 @@ class AddNewCurrency extends React.Component {
         const {
             setCoin,
             baseCurrencies,
-            targetCurrencies
+            targetCurrencies,
+            windowWidth,
         } = this.props;
+        let stylePerDevice = (windowWidth < AppConfig.breakpoint) ? 'Mobile' : 'Desktop';
 
         return (
-            <form style={AddCurrenciesListStyles.form}>
+            <form style={{ ...AddCurrenciesListStyles.form, ...AddCurrenciesListStyles[`form${stylePerDevice}`] }}>
                 {/* Base coin */}
-                <div style={AddCurrenciesListStyles.fieldSet}>
+                <div style={{ ...AddCurrenciesListStyles.fieldSet, ...AddCurrenciesListStyles[`fieldSet${stylePerDevice}`] }}>
                     <SearchInput
                         label='Base coin'
                         clearInput={this.state.clearInput}
@@ -85,7 +88,7 @@ class AddNewCurrency extends React.Component {
                 </div>
 
                 {/* Target coin */}
-                <div style={AddCurrenciesListStyles.fieldSet}>
+                <div style={{ ...AddCurrenciesListStyles.fieldSet,  ...AddCurrenciesListStyles[`fieldSet${stylePerDevice}`] }}>
                     <SearchInput
                         label='Target coin'
                         clearInput={this.state.clearInput}
@@ -95,7 +98,7 @@ class AddNewCurrency extends React.Component {
 
                 {/* Button */}
                 <button
-                    style={{...buttons.gradientMiddle, ...AddCurrenciesListStyles.button}}
+                    style={{...buttons.gradientMiddle, ...AddCurrenciesListStyles[`button${stylePerDevice}`]}}
                     onMouseOver={(e) => this.buttonAnimation(e, 'hover', true)}
                     onMouseLeave={(e) => this.buttonAnimation(e, 'hover', false)}
                     onMouseDown={(e) => this.buttonAnimation(e, 'click', true)}

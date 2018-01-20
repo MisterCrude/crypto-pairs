@@ -143,6 +143,8 @@ class Main extends React.Component {
     };
 
     render() {
+        const { windowWidth } = this.props;
+
         return (
             <main style={MainStyles}>
                 {/* Currencies list */}
@@ -153,6 +155,7 @@ class Main extends React.Component {
 
                 {/* Currencies list */}
                 <AddNewCurrency
+                    windowWidth={windowWidth}
                     baseCurrencies={this.state.baseCurrencies}
                     targetCurrencies={this.state.targetCurrencies}
                     addNewCurrenciesPair={this.addNewCurrenciesPair}
