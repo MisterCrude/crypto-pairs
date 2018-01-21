@@ -79,6 +79,7 @@ class AddNewCurrency extends React.Component {
                 {/* Base coin */}
                 <div style={{ ...AddCurrenciesListStyles.fieldSet, ...AddCurrenciesListStyles[`fieldSet${deviceType}`] }}>
                     <SearchInput
+                        deviceType={deviceType}
                         label='Base coin'
                         clearInput={this.state.clearInput}
                         items={baseCurrencies}
@@ -88,6 +89,7 @@ class AddNewCurrency extends React.Component {
                 {/* Target coin */}
                 <div style={{ ...AddCurrenciesListStyles.fieldSet,  ...AddCurrenciesListStyles[`fieldSet${deviceType}`] }}>
                     <SearchInput
+                        deviceType={deviceType}
                         label='Target coin'
                         clearInput={this.state.clearInput}
                         items={targetCurrencies}

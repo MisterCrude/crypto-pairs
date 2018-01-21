@@ -63,9 +63,7 @@ class SearchInput extends React.Component {
 
     componentWillReceiveProps(nextProps) {
        if (nextProps.clearInput) {
-           this.setState({
-               inputValue: '',
-           });
+           this.setState({ inputValue: '' });
        }
     }
 
@@ -73,6 +71,7 @@ class SearchInput extends React.Component {
         const {
             items,
             label,
+            deviceType,
         } = this.props;
 
         return(
@@ -91,6 +90,7 @@ class SearchInput extends React.Component {
 
                {/* Suggestions */}
                <SearchInputSuggestBox
+                   deviceType={deviceType}
                    showSuggestBox={this.state.showSuggestBox}
                    setSelectedItem={this.setSelectedItem}
                    inputValue={this.state.inputValue}

@@ -62,7 +62,7 @@ class CurrencyRow extends React.Component {
         let changeIndicator = {
             color: changeUp ? variables.green : variables.red,
             icon: changeUp ? 'angle-up' : 'angle-down',
-            styles: changeUp ? '' : {position: 'relative', top: '5px'},
+            styles: changeUp ? {top: '3px'} : {top: '5px'},
         };
 
         return (

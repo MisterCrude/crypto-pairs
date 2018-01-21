@@ -17,7 +17,10 @@ const CurrencyRowStyles = {
     },
     smallTextDesktop: { fontSize: variables.middleFont },
     smallTextMobile: { fontSize: variables.smallFont },
-    arrow: { fontSize: variables.extraLargeFont },
+    arrow: {
+        fontSize: variables.extraLargeFont,
+        position: 'relative',
+    },
     changeMobile: { display: 'none' },
     closeButton: {
         fontSize: variables.middleFont,

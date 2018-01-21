@@ -88,10 +88,15 @@ class SearchInputSuggestBox extends React.Component {
     render() {
         const {
             setSelectedItem,
+            deviceType,
         } = this.props;
 
         return(
-            <ul style={{...SearchInputSuggestBoxStyles.list, display: (this.state.showSuggestBox) ? 'block' : 'none'}}>
+            <ul style={{
+                ...SearchInputSuggestBoxStyles.list,
+                ...SearchInputSuggestBoxStyles[`list${deviceType}`],
+                display: (this.state.showSuggestBox) ? 'block' : 'none'
+            }}>
                 {this.state.itemsForShowing.map((item, index) =>
                     <li
                         style={SearchInputSuggestBoxStyles.itemPointer}
