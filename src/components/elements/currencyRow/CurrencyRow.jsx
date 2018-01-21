@@ -59,12 +59,14 @@ class CurrencyRow extends React.Component {
             changePercents,
             hideRemoveButton,
             removeCurrenciesPair,
+            deviceType,
         } = this.props;
         let changeIndicator = {
             color: changeUp ? variables.green : variables.red,
             icon: changeUp ? 'angle-up' : 'angle-down',
             styles: changeUp ? '' : { position: 'relative', top: '1px' },
         };
+
         return (
             <tr style={{...this.state.animateStyle, ...CurrencyRowStyles.row}}>
                 <td>

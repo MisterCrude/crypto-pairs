@@ -3,6 +3,7 @@ import Header from './components/layout/header/Header';
 import Footer from './components/layout/footer/Footer';
 import Main from './components/layout/main/Main';
 import 'font-awesome/css/font-awesome.css';
+import AppConfig from './config/app-config';
 
 import AppStyles from './AppStyles';
 
@@ -15,26 +16,27 @@ class App extends React.Component {
         }
     }
 
-    getWindowWidth = () => {
-        this.setState({ windowWidth: window.innerWidth });
+    getDeviceType = () => {
+        let deviceType = (window.innerWidth < AppConfig.breakpoint) ? 'Mobile' : 'Desktop';
+        this.setState({ deviceType: deviceType });
     };
 
     componentDidMount() {
-        this.getWindowWidth();
-        window.addEventListener('resize', this.getWindowWidth);
+        this.getDeviceType();
+        window.addEventListener('resize', this.getDeviceType);
     }
 
     render() {
         return (
             <section style={AppStyles}>
                 {/* Header */}
-                <Header windowWidth={this.state.windowWidth} />
+                <Header deviceType={this.state.deviceType} />
 
                 {/* Main */}
-                <Main windowWidth={this.state.windowWidth} />
+                <Main deviceType={this.state.deviceType} />
 
                 {/* Footer */}
-                <Footer />
+                <Footer deviceType={this.state.deviceType} />
             </section>
         );
     }

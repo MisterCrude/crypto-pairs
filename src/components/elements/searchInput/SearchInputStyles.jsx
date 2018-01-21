@@ -15,7 +15,6 @@ const SearchInputStyles = {
         padding: '13px 23px',
         borderRadius: '30px',
         position: 'relative',
-        zIndex: 2,
     },
 };
 

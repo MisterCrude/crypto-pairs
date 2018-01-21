@@ -1,16 +1,14 @@
 import React from 'react';
-import AppConfig from '../../../config/app-config';
 
 import HeaderStyles from './HeaderStyles';
 
 
 class Header extends React.Component {
     render() {
-        const { windowWidth } = this.props;
-        let stylePerDevice = (windowWidth < AppConfig.breakpoint) ? HeaderStyles.mobile : HeaderStyles.desktop;
+        const { deviceType } = this.props;
 
         return (
-            <header style={{ ...HeaderStyles.main, ...stylePerDevice }}>
+            <header style={{ ...HeaderStyles.main, ...HeaderStyles[`main${deviceType}`] }}>
                 <h1>
                     Exchange rate for BTC / LTC and etc.
                 </h1>

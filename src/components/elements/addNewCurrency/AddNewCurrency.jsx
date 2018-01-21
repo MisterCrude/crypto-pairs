@@ -2,7 +2,6 @@ import React from 'react';
 import buttons from '../../../styles/buttons';
 import variables from '../../../styles/variables';
 import SearchInput from '../../elements/searchInput/SearchInput';
-import AppConfig from '../../../config/app-config';
 
 import AddCurrenciesListStyles from './AddNewCurrencyStyles';
 
@@ -72,14 +71,13 @@ class AddNewCurrency extends React.Component {
             setCoin,
             baseCurrencies,
             targetCurrencies,
-            windowWidth,
+            deviceType,
         } = this.props;
-        let stylePerDevice = (windowWidth < AppConfig.breakpoint) ? 'Mobile' : 'Desktop';
 
         return (
-            <form style={{ ...AddCurrenciesListStyles.form, ...AddCurrenciesListStyles[`form${stylePerDevice}`] }}>
+            <form style={{ ...AddCurrenciesListStyles.form, ...AddCurrenciesListStyles[`form${deviceType}`] }}>
                 {/* Base coin */}
-                <div style={{ ...AddCurrenciesListStyles.fieldSet, ...AddCurrenciesListStyles[`fieldSet${stylePerDevice}`] }}>
+                <div style={{ ...AddCurrenciesListStyles.fieldSet, ...AddCurrenciesListStyles[`fieldSet${deviceType}`] }}>
                     <SearchInput
                         label='Base coin'
                         clearInput={this.state.clearInput}
@@ -88,7 +86,7 @@ class AddNewCurrency extends React.Component {
                 </div>
 
                 {/* Target coin */}
-                <div style={{ ...AddCurrenciesListStyles.fieldSet,  ...AddCurrenciesListStyles[`fieldSet${stylePerDevice}`] }}>
+                <div style={{ ...AddCurrenciesListStyles.fieldSet,  ...AddCurrenciesListStyles[`fieldSet${deviceType}`] }}>
                     <SearchInput
                         label='Target coin'
                         clearInput={this.state.clearInput}
@@ -98,7 +96,7 @@ class AddNewCurrency extends React.Component {
 
                 {/* Button */}
                 <button
-                    style={{...buttons.gradientMiddle, ...AddCurrenciesListStyles[`button${stylePerDevice}`]}}
+                    style={{...buttons.gradientMiddle, ...AddCurrenciesListStyles[`button${deviceType}`]}}
                     onMouseOver={(e) => this.buttonAnimation(e, 'hover', true)}
                     onMouseLeave={(e) => this.buttonAnimation(e, 'hover', false)}
                     onMouseDown={(e) => this.buttonAnimation(e, 'click', true)}

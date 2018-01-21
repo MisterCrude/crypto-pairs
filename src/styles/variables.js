@@ -40,7 +40,7 @@ const variables = {
     borderRadius: '4px',
     boxShadow: '0 0 40px 0px rgba(199,199,199,.9)',
     boxShadowSmall: '0 0 3px 3px #d2d1d1e6',
-    boxShadowXSmall: '0 0 3px 3px #d2d1d182',
+    boxShadowXSmall: '0 2px 3px 2px #d2d1d182',
     boxShadowSmallInvert: '0 0 3px 0 #c7c7c7e6',
 };
 

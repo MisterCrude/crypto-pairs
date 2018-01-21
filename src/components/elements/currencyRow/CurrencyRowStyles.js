@@ -32,6 +32,7 @@ const CurrencyRowStyles = {
         position: 'relative',
         top: '-2px',
         opacity: '.4',
+        background: 'transparent',
     },
 };
 

@@ -11,6 +11,7 @@ class CurrenciesPairs extends React.Component {
             showThrobber,
             currenciesPairs,
             removeCurrenciesPair,
+            deviceType,
         } = this.props;
         return (
             <div>
@@ -19,6 +20,7 @@ class CurrenciesPairs extends React.Component {
                         {/* Currency row */}
                         {currenciesPairs.map((currenciesRow) =>
                             <CurrencyRow
+                                deviceType={deviceType}
                                 key={currenciesRow.id}
                                 change={currenciesRow.change}
                                 changeUp={currenciesRow.changeUp}

@@ -10,8 +10,8 @@ const HeaderStyles = {
         textAlign: 'center',
         lineHeight: variables.lineHeight,
     },
-    desktop: { fontSize: '22px' },
-    mobile: { fontSize: '12px' },
+    mainDesktop: { fontSize: '22px' },
+    mainMobile: { fontSize: '14px' },
 };
 
 export default HeaderStyles;

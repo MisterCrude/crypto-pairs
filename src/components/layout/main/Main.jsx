@@ -143,19 +143,20 @@ class Main extends React.Component {
     };
 
     render() {
-        const { windowWidth } = this.props;
+        const { deviceType } = this.props;
 
         return (
             <main style={MainStyles}>
                 {/* Currencies list */}
                 <CurrenciesPairs
+                    deviceType={deviceType}
                     currenciesPairs={this.state.currenciesPairs}
                     showThrobber={this.state.showThrobber}
                     removeCurrenciesPair={this.removeCurrenciesPair} />
 
                 {/* Currencies list */}
                 <AddNewCurrency
-                    windowWidth={windowWidth}
+                    deviceType={deviceType}
                     baseCurrencies={this.state.baseCurrencies}
                     targetCurrencies={this.state.targetCurrencies}
                     addNewCurrenciesPair={this.addNewCurrenciesPair}
