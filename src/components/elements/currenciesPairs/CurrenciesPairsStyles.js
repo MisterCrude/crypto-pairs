@@ -3,6 +3,7 @@ import variables from '../../../styles/variables';
 
 const CurrenciesPairsStyles = {
     table: {
+        minWidth: '450px',
         width: '100%',
     },
     spinnerWrapper: {
@@ -12,7 +13,15 @@ const CurrenciesPairsStyles = {
     spinner: {
         verticalAlign: 'middle',
         fontSize: variables.middleFont,
-    }
+    },
+    tableWrapperDesktop: {  },
+    tableWrapperMobile: {
+        border: `1px solid ${variables.gay}`,
+        padding: '0 1em',
+        overflowX: 'auto',
+        boxSizing: 'border-box',
+        borderRadius: variables.borderRadius,
+    },
 };
 
 export default CurrenciesPairsStyles;

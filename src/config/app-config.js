@@ -11,7 +11,7 @@ const AppConfig = {
         link: 'https://www.cryptonator.com/auth/signup/101759215',
     },
 
-    // Point for changing styles
+    // Point for  styles
     breakpoint: 768,
 
     // Currencies on with you can check price base currency

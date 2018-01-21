@@ -13,8 +13,9 @@ class CurrenciesPairs extends React.Component {
             removeCurrenciesPair,
             deviceType,
         } = this.props;
+
         return (
-            <div>
+            <div style={{ ...CurrenciesPairsStyles[`tableWrapper${deviceType}`] }}>
                 <table style={CurrenciesPairsStyles.table}>
                     <tbody>
                         {/* Currency row */}

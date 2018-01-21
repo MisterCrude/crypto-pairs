@@ -146,7 +146,7 @@ class Main extends React.Component {
         const { deviceType } = this.props;
 
         return (
-            <main style={MainStyles}>
+            <main style={{ ...MainStyles.container,  ...MainStyles[`container${deviceType}`] }}>
                 {/* Currencies list */}
                 <CurrenciesPairs
                     deviceType={deviceType}

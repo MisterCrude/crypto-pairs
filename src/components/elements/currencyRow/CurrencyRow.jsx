@@ -36,20 +36,18 @@ class CurrencyRow extends React.Component {
         }));
     };
 
-    removeCurrenciesPair = (removeParentMethod, hideRemoveButton=false) => {
-        if (hideRemoveButton) {
-            return;
-        }
+    removeCurrenciesPair = (removeParentMethod, hideRemoveButton = false) => {
+        if (hideRemoveButton) return;
 
         this.unMountStyle();
         setTimeout(() => removeParentMethod(), this.animationDuration + 20);
     };
 
     componentWillMount() {
-       setTimeout(() => this.mountStyle(), 10);
+        setTimeout(() => this.mountStyle(), 10);
     };
 
-    render () {
+    render() {
         const {
             base,
             target,
@@ -64,40 +62,60 @@ class CurrencyRow extends React.Component {
         let changeIndicator = {
             color: changeUp ? variables.green : variables.red,
             icon: changeUp ? 'angle-up' : 'angle-down',
-            styles: changeUp ? '' : { position: 'relative', top: '1px' },
+            styles: changeUp ? '' : {position: 'relative', top: '5px'},
         };
 
         return (
-            <tr style={{...this.state.animateStyle, ...CurrencyRowStyles.row}}>
+            <tr style={{
+                ...this.state.animateStyle,
+                ...CurrencyRowStyles.row
+            }}>
                 <td>
-                    <span style={CurrencyRowStyles.text}>
-                        {base} / {target}
-                    </span>
+                    <span style={{
+                        ...CurrencyRowStyles.text,
+                        ...CurrencyRowStyles[`text${deviceType}`]
+                    }}>{base} / {target}</span>
                 </td>
                 <td>
-                    <span style={CurrencyRowStyles.titleLarge}>
-                        {price}
-                    </span>
+                    <span style={{
+                        ...CurrencyRowStyles.titleLarge,
+                        ...CurrencyRowStyles[`titleLarge${deviceType}`]
+                    }}>{price}</span>
                 </td>
                 <td style={helpers.textCenter}>
                     {/* Arrow indicator */}
                     <span style={CurrencyRowStyles.text}>
-                        <FontAwesome style={{...CurrencyRowStyles.arrow, color: changeIndicator.color, ...changeIndicator.styles}} name={changeIndicator.icon} />
+                        <FontAwesome style={{
+                            ...CurrencyRowStyles.arrow,
+                            ...changeIndicator.styles,
+                            color: changeIndicator.color,
+                        }} name={changeIndicator.icon}/>
                     </span>
                 </td>
                 <td>
                     {/* Change */}
-                    <span style={{color: changeIndicator.color, ...CurrencyRowStyles.smallText}}>{change}</span>
+                    <span style={{
+                        color: changeIndicator.color,
+                        ...CurrencyRowStyles.smallText,
+                        ...CurrencyRowStyles[`smallText${deviceType}`],
+                        ...CurrencyRowStyles[`change${deviceType}`]
+                    }}>{change}</span>
 
                     {/* Change percents */}
-                    <span style={CurrencyRowStyles.smallText}>({changePercents}%)</span>
+                    <span style={{
+                        ...CurrencyRowStyles.smallText,
+                        ...CurrencyRowStyles[`smallText${deviceType}`],
+                        color: changeIndicator.color,
+                    }}>({changePercents}%)</span>
                 </td>
                 <td>
                     {/* Remove button */}
-                    <button
-                        style={{visibility: (hideRemoveButton && 'hidden'), ...CurrencyRowStyles.closeButton}}
+                    <button style={{
+                            visibility: (hideRemoveButton && 'hidden'),
+                            ...CurrencyRowStyles.closeButton
+                        }}
                         onClick={(e) => this.removeCurrenciesPair(removeCurrenciesPair, hideRemoveButton)}>
-                        <FontAwesome name="times-circle" />
+                        <FontAwesome name="times-circle"/>
                     </button>
                 </td>
             </tr>
