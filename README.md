@@ -1,3 +1,3 @@
 # Crypto-currency exchange rate list
 
-### [Try now](https://ivyman.github.io/crypto_pairs/)
+### [Try it now](https://ivyman.github.io/crypto_pairs/build)
