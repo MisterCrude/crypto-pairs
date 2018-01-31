@@ -60,7 +60,10 @@ class Api {
     }
 
     currencyRate(currencyCoinOne, currencyCoinTwo) {
-        return fetch(`${this.apiUrl}/ticker/${currencyCoinOne}-${currencyCoinTwo}`, {
+        let baseCoin = currencyCoinOne.toLowerCase();
+        let targetCoin = currencyCoinTwo.toLowerCase();
+
+        return fetch(`${this.apiUrl}/ticker/${baseCoin}-${targetCoin}`, {
             method: 'GET',
         })
             .then(resp => resp.json())

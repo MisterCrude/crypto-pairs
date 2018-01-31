@@ -3,7 +3,7 @@ const AppConfig = {
     isDev: (window && window.location && window.location.hostname && window.location.hostname === 'localhost'),
 
     // External API endpoint
-    apiUrl: 'https://www.cryptonator.com/api',
+    apiUrl: 'https://api.cryptonator.com/api',
 
     // Affiliate link in footer
     affiliateLink: {
