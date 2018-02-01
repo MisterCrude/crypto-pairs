@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchInputSuggestBox from '../searchInputSuggestBox/SearchInputSuggestBox';
+import SearchInputSuggestBox from '../SearchInputSuggestBox';
 
 import SearchInputStyles from './SearchInputStyles';
 

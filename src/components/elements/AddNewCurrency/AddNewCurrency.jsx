@@ -1,7 +1,7 @@
 import React from 'react';
 import buttons from '../../../styles/buttons';
 import variables from '../../../styles/variables';
-import SearchInput from '../../elements/searchInput/SearchInput';
+import SearchInput from '../../elements/SearchInput';
 
 import AddCurrenciesListStyles from './AddNewCurrencyStyles';
 

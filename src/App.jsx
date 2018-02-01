@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './components/layout/header/Header';
-import Footer from './components/layout/footer/Footer';
-import Main from './components/layout/main/Main';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Main from './components/layout/Main';
 import 'font-awesome/css/font-awesome.css';
 import AppConfig from './config/app-config';
 

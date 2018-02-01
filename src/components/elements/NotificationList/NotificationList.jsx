@@ -1,5 +1,5 @@
 import React from 'react';
-import Notification from '../notification/Notification';
+import Notification from '../Notification';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import NotificationListStyles from './NotificationListStyles';

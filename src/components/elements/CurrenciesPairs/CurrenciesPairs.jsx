@@ -1,5 +1,5 @@
 import React from 'react';
-import CurrencyRow from '../currencyRow/CurrencyRow';
+import CurrencyRow from '../CurrencyRow';
 import FontAwesome from 'react-fontawesome';
 
 import CurrenciesPairsStyles from './CurrenciesPairsStyles';
