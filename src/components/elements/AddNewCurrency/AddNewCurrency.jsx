@@ -2,7 +2,6 @@ import React from 'react';
 import buttons from '../../../styles/buttons';
 import variables from '../../../styles/variables';
 import SearchInput from '../../elements/SearchInput';
-
 import AddCurrenciesListStyles from './AddNewCurrencyStyles';
 
 
@@ -75,30 +74,44 @@ class AddNewCurrency extends React.Component {
         } = this.props;
 
         return (
-            <form style={{ ...AddCurrenciesListStyles.form, ...AddCurrenciesListStyles[`form${deviceType}`] }}>
+            <form style={{
+                ...AddCurrenciesListStyles.form,
+                ...AddCurrenciesListStyles[`form${deviceType}`]
+            }}>
                 {/* Base coin */}
-                <div style={{ ...AddCurrenciesListStyles.fieldSet, ...AddCurrenciesListStyles[`fieldSet${deviceType}`] }}>
+                <div style={{
+                    ...AddCurrenciesListStyles.fieldSet,
+                    ...AddCurrenciesListStyles[`fieldSet${deviceType}`]
+                }}>
                     <SearchInput
                         deviceType={deviceType}
                         label='Base coin'
                         clearInput={this.state.clearInput}
                         items={baseCurrencies}
-                        setValue={(coinName, isBaseCoin=true) => {setCoin(coinName, isBaseCoin)}} />
+                        setValue={(coinName, isBaseCoin=true) => {setCoin(coinName, isBaseCoin)}}
+                    />
                 </div>
 
                 {/* Target coin */}
-                <div style={{ ...AddCurrenciesListStyles.fieldSet,  ...AddCurrenciesListStyles[`fieldSet${deviceType}`] }}>
+                <div style={{
+                    ...AddCurrenciesListStyles.fieldSet,
+                    ...AddCurrenciesListStyles[`fieldSet${deviceType}`]
+                }}>
                     <SearchInput
                         deviceType={deviceType}
                         label='Target coin'
                         clearInput={this.state.clearInput}
                         items={targetCurrencies}
-                        setValue={(coinName, isBaseCoin=false) => {setCoin(coinName, isBaseCoin)}} />
+                        setValue={(coinName, isBaseCoin=false) => {setCoin(coinName, isBaseCoin)}}
+                    />
                 </div>
 
                 {/* Button */}
                 <button
-                    style={{...buttons.gradientMiddle, ...AddCurrenciesListStyles[`button${deviceType}`]}}
+                    style={{
+                        ...buttons.gradientMiddle,
+                        ...AddCurrenciesListStyles[`button${deviceType}`]
+                    }}
                     onMouseOver={(e) => this.buttonAnimation(e, 'hover', true)}
                     onMouseLeave={(e) => this.buttonAnimation(e, 'hover', false)}
                     onMouseDown={(e) => this.buttonAnimation(e, 'click', true)}

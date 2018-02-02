@@ -5,7 +5,6 @@ import NotificationList from '../../elements/NotificationList';
 import HelpersFoo from '../../../config/helpers-foo';
 import NotificationsType from '../../../config/notification-types';
 import Api from '../../../config/Api';
-
 import MainStyles from './MainStyles';
 
 
@@ -129,7 +128,6 @@ class Main extends React.Component {
         }));
     };
 
-
     componentDidMount() {
         let baseList = Api.getBaseCurrenciesList;
         let targetList = Api.getTargetCurrenciesList;
@@ -146,13 +144,17 @@ class Main extends React.Component {
         const { deviceType } = this.props;
 
         return (
-            <main style={{ ...MainStyles.container,  ...MainStyles[`container${deviceType}`] }}>
+            <main style={{
+                ...MainStyles.container,
+                ...MainStyles[`container${deviceType}`]
+            }}>
                 {/* Currencies list */}
                 <CurrenciesPairs
                     deviceType={deviceType}
                     currenciesPairs={this.state.currenciesPairs}
                     showThrobber={this.state.showThrobber}
-                    removeCurrenciesPair={this.removeCurrenciesPair} />
+                    removeCurrenciesPair={this.removeCurrenciesPair}
+                />
 
                 {/* Currencies list */}
                 <AddNewCurrency
@@ -160,14 +162,16 @@ class Main extends React.Component {
                     baseCurrencies={this.state.baseCurrencies}
                     targetCurrencies={this.state.targetCurrencies}
                     addNewCurrenciesPair={this.addNewCurrenciesPair}
-                    setCoin={this.setCoin} />
+                    setCoin={this.setCoin}
+                />
 
                 {/*<button>add to screen</button>*/}
 
                 {/* Notifications */}
                 <NotificationList
                     dismiss={this.dismissNotification}
-                    notifications={this.state.notifications} />
+                    notifications={this.state.notifications}
+                />
             </main>
         )
     };

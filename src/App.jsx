@@ -4,7 +4,6 @@ import Footer from './components/layout/Footer';
 import Main from './components/layout/Main';
 import 'font-awesome/css/font-awesome.css';
 import AppConfig from './config/app-config';
-
 import AppStyles from './AppStyles';
 
 

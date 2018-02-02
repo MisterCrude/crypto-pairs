@@ -16,7 +16,7 @@ class Api {
 
         if (percents < 0) {
             result = percents.toString().replace('-', '');
-            result = (result < 1) ? '> 1' : (+result).toFixed(2);
+            result = (result < 1) ? '< 1' : (+result).toFixed(2);
         } else {
             result = percents.toFixed(2);
         }

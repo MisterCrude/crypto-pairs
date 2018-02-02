@@ -16,7 +16,9 @@ const NotificationList = ({notifications, dismiss}) => (
                 <Notification
                     key={noteParams.id}
                     dismiss={dismiss}
-                    {...noteParams} />)}
+                    {...noteParams}
+                />
+            )}
         </ReactCSSTransitionGroup>
     </div>
 );

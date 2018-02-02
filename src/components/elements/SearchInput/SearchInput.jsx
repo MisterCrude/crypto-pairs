@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchInputSuggestBox from '../SearchInputSuggestBox';
-
 import SearchInputStyles from './SearchInputStyles';
 
 
@@ -52,8 +51,6 @@ class SearchInput extends React.Component {
     };
 
     setSelectedItem = (coinName, fullCurrencyName) => {
-        // Set selected item from  'SearchInputSuggestBox'
-
         this.setState({
             inputValue: fullCurrencyName,
             clearInput: false,
@@ -86,7 +83,8 @@ class SearchInput extends React.Component {
                    onChange={this.handleChange}
                    onKeyDown={this.handleKeyboard}
                    value={this.state.inputValue}
-                   type='text' />
+                   type='text'
+               />
 
                {/* Suggestions */}
                <SearchInputSuggestBox
@@ -95,7 +93,8 @@ class SearchInput extends React.Component {
                    setSelectedItem={this.setSelectedItem}
                    inputValue={this.state.inputValue}
                    keyboardButtonsActive={this.state.keyboardButtonsActive}
-                   items={items} />
+                   items={items}
+               />
            </fieldset>
         );
     }

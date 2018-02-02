@@ -2,7 +2,6 @@ import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import variables from '../../../styles/variables';
 import helpers from '../../../styles/helpers';
-
 import CurrencyRowStyles from './CurrencyRowStyles';
 
 

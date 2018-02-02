@@ -1,6 +1,5 @@
 import React from 'react';
 import variables from '../../../styles/variables';
-
 import SearchInputSuggestBoxStyles from './SearchInputSuggestBoxStyles';
 
 
@@ -103,11 +102,13 @@ class SearchInputSuggestBox extends React.Component {
                         key={item.code}
                         ref={(el => this.listItems[index] = el)}
                         onMouseEnter={() => this.setActiveItemState(index)}
-                        onClick={() => setSelectedItem(item.code, `${item.code} - ${item.name}`)} >{item.code} - {item.name}</li>)}
+                        onClick={() => setSelectedItem(item.code, `${item.code} - ${item.name}`)}
+                    >
+                        {item.code} - {item.name}
+                    </li>)}
 
                     {/* No results */}
-                    {this.state.itemsForShowing.length === 0 &&
-                        <li style={SearchInputSuggestBoxStyles.item}>No results</li>}
+                    {this.state.itemsForShowing.length === 0 && <li style={SearchInputSuggestBoxStyles.item}>No results</li>}
             </ul>
         );
     }
