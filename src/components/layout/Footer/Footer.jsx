@@ -14,7 +14,7 @@ const Footer = ({ deviceType }) => (
             ...FooterStyles.text,
             ...FooterStyles[`text${deviceType}`]
         }}>
-            Currency rate information provided by
+            Currency rate information provided by &nbsp;
             <a target="_blank" style={FooterStyles.link} href={link}>{name}</a>
         </p>
     </footer>
