@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderStyles from './HeaderStyles';
+import logo from './assets/logo.svg';
 
 
 const Header = ({ deviceType }) => (
@@ -7,7 +8,11 @@ const Header = ({ deviceType }) => (
         ...HeaderStyles.main,
         ...HeaderStyles[`main${deviceType}`]
     }}>
-        <h1>Exchange rate for BTC / LTC and etc.</h1>
+        <img
+            style={HeaderStyles.logo}
+            src={logo}
+            alt='Currency exchange'
+        /><h1>Exchange rate for BTC / LTC and etc.</h1>
     </header>
 );
 
