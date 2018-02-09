@@ -14,7 +14,7 @@ class Api {
         let percents = (change/(price/100));
         let result = '';
 
-        if (percents < 0) {
+        if (percents < 1) {
             result = percents.toString().replace('-', '');
             result = (result < 1) ? '< 1' : (+result).toFixed(2);
         } else {

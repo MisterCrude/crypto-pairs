@@ -162,7 +162,7 @@ class Main extends React.Component {
                     removeCurrenciesPair={this.removeCurrenciesPair}
                 />
 
-                {/* Currencies list */}
+                {/* Fields for new pairs */}
                 <AddNewCurrency
                     deviceType={deviceType}
                     baseCurrencies={this.state.baseCurrencies}

@@ -22,22 +22,24 @@ const CurrenciesPairs = ({ showThrobber, currenciesPairs, removeCurrenciesPair, 
                         hideRemoveButton={currenciesPairs.length === 1}
                         removeCurrenciesPair={() => removeCurrenciesPair(currenciesRow.id)}/>)}
 
-                {/* Throbber */}
-                {(showThrobber && !hasError) &&
+                {(showThrobber || hasError) &&
                     <tr>
                         <td
                             colSpan='5'
                             style={CurrenciesPairsStyles.spinnerWrapper}>
-                            <FontAwesome
-                                style={CurrenciesPairsStyles.spinner}
-                                name='spinner'
-                                spin />
+                            {/* API error */}
+                            {hasError &&  <h2 style={CurrenciesPairsStyles.errorMsg}>Sorry, some server error. Try again later.</h2>}
+
+                            {/* Throbber */}
+                            {showThrobber &&
+                                <FontAwesome
+                                    style={CurrenciesPairsStyles.spinner}
+                                    name='spinner'
+                                    spin />
+                            }
                         </td>
                     </tr>
                 }
-
-                {/* API error */}
-                {hasError && <h2 style={CurrenciesPairsStyles.errorMsg}>Sorry, some server error. Try again later.</h2>}
             </tbody>
         </table>
     </div>

@@ -24,8 +24,8 @@ const CurrenciesPairsStyles = {
     },
     errorMsg: {
         color: variables.trueRed,
+        fontWeight: "100",
         textAlign: "center",
-        margin: "1em 0"
     },
 };
 
