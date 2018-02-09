@@ -16,6 +16,7 @@ const variables = {
     green: '#008080',
     white: '#ffffff',
     red: '#d350db',
+    trueRed: '#ff2b2b',
     gay: '#d6d6d6',
     lightGay: '#dedede82',
 

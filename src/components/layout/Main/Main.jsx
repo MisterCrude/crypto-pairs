@@ -19,6 +19,7 @@ class Main extends React.Component {
             targetCoin: '',
             notifications: [],
             showThrobber: true,
+            hasError: false
         };
     }
 
@@ -65,7 +66,11 @@ class Main extends React.Component {
                     targetCoin: '',
                 }));
             })
-            .catch(error => console.error(error));
+            .catch(() => {
+                this.setState({
+                   hasError: true
+                })
+            });
     };
 
     // Show notification
@@ -150,6 +155,7 @@ class Main extends React.Component {
             }}>
                 {/* Currencies list */}
                 <CurrenciesPairs
+                    hasError={this.state.hasError}
                     deviceType={deviceType}
                     currenciesPairs={this.state.currenciesPairs}
                     showThrobber={this.state.showThrobber}

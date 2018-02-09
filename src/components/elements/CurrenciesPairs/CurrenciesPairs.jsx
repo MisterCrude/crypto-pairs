@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome';
 import CurrenciesPairsStyles from './CurrenciesPairsStyles';
 
 
-const CurrenciesPairs = ({ showThrobber, currenciesPairs, removeCurrenciesPair, deviceType }) => (
+const CurrenciesPairs = ({ showThrobber, currenciesPairs, removeCurrenciesPair, deviceType, hasError }) => (
     <div style={{ ...CurrenciesPairsStyles[`tableWrapper${deviceType}`] }}>
         <table style={CurrenciesPairsStyles.table}>
             <tbody>
@@ -23,7 +23,7 @@ const CurrenciesPairs = ({ showThrobber, currenciesPairs, removeCurrenciesPair, 
                         removeCurrenciesPair={() => removeCurrenciesPair(currenciesRow.id)}/>)}
 
                 {/* Throbber */}
-                {showThrobber &&
+                {(showThrobber && !hasError) &&
                     <tr>
                         <td
                             colSpan='5'
@@ -35,6 +35,9 @@ const CurrenciesPairs = ({ showThrobber, currenciesPairs, removeCurrenciesPair, 
                         </td>
                     </tr>
                 }
+
+                {/* API error */}
+                {hasError && <h2 style={CurrenciesPairsStyles.errorMsg}>Sorry, some server error. Try again later.</h2>}
             </tbody>
         </table>
     </div>

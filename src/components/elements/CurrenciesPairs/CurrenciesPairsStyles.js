@@ -22,6 +22,11 @@ const CurrenciesPairsStyles = {
         boxSizing: 'border-box',
         borderRadius: variables.borderRadius,
     },
+    errorMsg: {
+        color: variables.trueRed,
+        textAlign: "center",
+        margin: "1em 0"
+    },
 };
 
 export default CurrenciesPairsStyles;
