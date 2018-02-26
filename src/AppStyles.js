@@ -8,7 +8,7 @@ const AppStyles = {
    minHeight: '100vh',
    padding: `0 ${variables.paddingSmall}`,
    backgroundColor: variables.colorBackgroundMain,
-   backgroundImage: `url('/static/media/img/main-bg.png')`,
+   backgroundImage: `url('./static/media/img/main-bg.png')`,
    backgroundSize: `250px`,
    color: variables.colorFontFirst,
    fontFamily: 'Roboto, sans-serif',
