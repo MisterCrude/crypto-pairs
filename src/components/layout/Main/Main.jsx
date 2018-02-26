@@ -52,6 +52,18 @@ class Main extends React.Component {
             return;
         }
 
+        // Check if set same coin for both inputs
+        if (baseCoin === targetCoin) {
+            this.showNotification(`You can't set same coin for both inputs`, true);
+
+            // Clear inputs with coins
+            this.setState({
+                baseCoin: '',
+                targetCoin: '',
+            });
+            return;
+        }
+
         // Show throbber
         this.setState({
             showThrobber: true,
