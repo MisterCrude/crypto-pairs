@@ -9,7 +9,6 @@ assets/*
 /coverage
 
 # production
-/build
 
 
 # misc
