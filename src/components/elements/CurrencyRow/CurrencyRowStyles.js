@@ -1,4 +1,4 @@
-import variables from '../../../styles/variables';
+import variables from '../../../assets/styles/variables';
 
 const CurrencyRowStyles = {
     row: { lineHeight: '3.2em' },

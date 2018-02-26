@@ -1,5 +1,5 @@
 import React from 'react';
-import variables from '../../../styles/variables';
+import variables from '../../../assets/styles/variables';
 import SearchInputSuggestBoxStyles from './SearchInputSuggestBoxStyles';
 
 

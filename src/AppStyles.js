@@ -1,4 +1,5 @@
-import variables from './styles/variables';
+import variables from './assets/styles/variables';
+import * as mainBg from './assets/img/main-bg.png';
 
 
 const AppStyles = {
@@ -8,7 +9,7 @@ const AppStyles = {
    minHeight: '100vh',
    padding: `0 ${variables.paddingSmall}`,
    backgroundColor: variables.colorBackgroundMain,
-   backgroundImage: `url('./static/media/img/main-bg.png')`,
+   backgroundImage: `url(${mainBg})`,
    backgroundSize: `250px`,
    color: variables.colorFontFirst,
    fontFamily: 'Roboto, sans-serif',

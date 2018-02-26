@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderStyles from './HeaderStyles';
-import logo from './assets/logo.svg';
+import * as logo from './assets/logo.svg';
 
 
 const Header = ({ deviceType }) => (

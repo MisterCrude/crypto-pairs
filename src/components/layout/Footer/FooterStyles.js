@@ -1,4 +1,4 @@
-import variables from '../../../styles/variables';
+import variables from '../../../assets/styles/variables';
 
 
 const FooterStyles = {
