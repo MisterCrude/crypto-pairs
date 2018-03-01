@@ -189,12 +189,11 @@ class Main extends React.Component {
                     setCoin={this.setCoin}
                 />
 
-                {}
-                <button
-                  style={buttons.gradientMiddle}
-                  onClick={this.handleClickMobileDeviceButton}>
-                    create shortcut on screen
-                </button>
+                {/*<button*/}
+                  {/*style={buttons.gradientMiddle}*/}
+                  {/*onClick={this.handleClickMobileDeviceButton}>*/}
+                    {/*create shortcut on screen*/}
+                {/*</button>*/}
 
                 {/* Notifications */}
                 <NotificationList
