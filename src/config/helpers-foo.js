@@ -5,4 +5,6 @@ const HelpersFoo = {
     },
 };
 
-export default HelpersFoo;
+const MobileDeviceDetector = () => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+export { HelpersFoo, MobileDeviceDetector };

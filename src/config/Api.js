@@ -1,5 +1,5 @@
 import AppConfig from './app-config';
-import HelpersFoo from './helpers-foo';
+import { HelpersFoo } from './helpers-foo';
 
 class Api {
     constructor () {

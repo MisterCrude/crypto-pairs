@@ -2,8 +2,9 @@ import React from 'react';
 import CurrenciesPairs from '../../elements/CurrenciesPairs';
 import AddNewCurrency from '../../elements/AddNewCurrency';
 import NotificationList from '../../elements/NotificationList';
-import HelpersFoo from '../../../config/helpers-foo';
+import { HelpersFoo } from '../../../config/helpers-foo';
 import NotificationsType from '../../../config/notification-types';
+import buttons from '../../../assets/styles/buttons';
 import Api from '../../../config/Api';
 import MainStyles from './MainStyles';
 
@@ -145,6 +146,11 @@ class Main extends React.Component {
         }));
     };
 
+    handleClickMobileDeviceButton = (e) => {
+        e.preventDefault();
+        console.log(1);
+    };
+
     componentDidMount() {
         let baseList = Api.getBaseCurrenciesList;
         let targetList = Api.getTargetCurrenciesList;
@@ -183,7 +189,12 @@ class Main extends React.Component {
                     setCoin={this.setCoin}
                 />
 
-                {/*<button>add to screen</button>*/}
+                {}
+                <button
+                  style={buttons.gradientMiddle}
+                  onClick={this.handleClickMobileDeviceButton}>
+                    create shortcut on screen
+                </button>
 
                 {/* Notifications */}
                 <NotificationList
