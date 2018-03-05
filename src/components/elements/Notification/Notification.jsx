@@ -22,8 +22,6 @@ class Notification extends React.Component {
             dismiss
         } = this.props;
 
-        console.log(type)
-
         return(
             <div style={NotificationStyles.wrapper}>
                 <div style={{...NotificationStyles[`${type}Type`], ...NotificationStyles.container}}>

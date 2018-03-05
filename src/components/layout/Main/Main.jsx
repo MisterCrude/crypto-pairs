@@ -162,7 +162,20 @@ class Main extends React.Component {
     handleClickSaveButton = (e) => {
         e.preventDefault();
 
+        localStorage.setItem('pairs', JSON.stringify(this.state.currenciesPairs));
+
         this.showNotification(`You pairs successfully saved`, 'success');
+    };
+
+    setStartedCurrencies = (baseCoin, targetCoin) => {
+        let pairs = localStorage.getItem('pairs');
+
+        if (pairs) {
+            pairs = JSON.parse(pairs);
+            pairs.forEach((pair) => this.addNewCurrenciesPair(null, pair.base, pair.target))
+        } else {
+            this.addNewCurrenciesPair(null, baseCoin, targetCoin);
+        }
     };
 
     componentDidMount() {
@@ -174,7 +187,7 @@ class Main extends React.Component {
             targetCurrencies: [...targetList],
         }));
 
-        setTimeout(() => this.addNewCurrenciesPair(null, baseList[0].code, targetList[0].code), 0)
+        this.setStartedCurrencies(baseList[0].code, targetList[0].code);
     };
 
     render() {
@@ -203,15 +216,16 @@ class Main extends React.Component {
                     setCoin={this.setCoin}
                 />
 
-                <div
-                    style={MainStyles.buttonWrapper}
-                    onClick={this.handleClickSaveButton}>
-                        <button
-                          style={MainStyles.saveButton}
-                          onClick={this.handleClickMobileDeviceButton}>
-                            <FontAwesome name='save' />
-                        </button>
-                </div>
+                {localStorage &&
+                    <div
+                        style={MainStyles.buttonWrapper}
+                        onClick={this.handleClickSaveButton}>
+                            <button
+                              style={MainStyles.saveButton}
+                              onClick={this.handleClickMobileDeviceButton}>
+                                <FontAwesome name='save' />
+                            </button>
+                    </div>}
 
                 {/* Notifications */}
                 <NotificationList
