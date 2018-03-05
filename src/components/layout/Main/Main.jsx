@@ -4,7 +4,7 @@ import AddNewCurrency from '../../elements/AddNewCurrency';
 import NotificationList from '../../elements/NotificationList';
 import { HelpersFoo } from '../../../config/helpers-foo';
 import NotificationsType from '../../../config/notification-types';
-import buttons from '../../../assets/styles/buttons';
+import FontAwesome from 'react-fontawesome';
 import Api from '../../../config/Api';
 import MainStyles from './MainStyles';
 
@@ -31,7 +31,7 @@ class Main extends React.Component {
         }
 
         if (!baseCoin || !targetCoin) {
-            this.showNotification('Please, provide correct Base and Target coins', false);
+            this.showNotification('Please, provide correct Base and Target coins', 'error');
 
             // Clear inputs with coins
             this.setState({
@@ -43,7 +43,7 @@ class Main extends React.Component {
 
         // Check if you have added same pair
         if (this.hasSamePair({base: baseCoin, target: targetCoin}, this.state.currenciesPairs)) {
-            this.showNotification(`You already have ${baseCoin}/${targetCoin} pair`, true);
+            this.showNotification(`You already have ${baseCoin}/${targetCoin} pair`, 'warning');
 
             // Clear inputs with coins
             this.setState({
@@ -55,7 +55,7 @@ class Main extends React.Component {
 
         // Check if set same coin for both inputs
         if (baseCoin === targetCoin) {
-            this.showNotification(`You can't set same coin for both inputs`, true);
+            this.showNotification(`You can't set same coin for both inputs`, 'warning');
 
             // Clear inputs with coins
             this.setState({
@@ -87,10 +87,23 @@ class Main extends React.Component {
     };
 
     // Show notification
-    showNotification(notificationText, isWarning) {
-        let type = (isWarning) ? NotificationsType.warning : NotificationsType.error;
-        let warning = {
-            ...type,
+    showNotification(notificationText, type) {
+        let typeStyles;
+
+        switch(type) {
+            case 'success':
+                typeStyles = NotificationsType.success;
+                break;
+            case 'error':
+                typeStyles = NotificationsType.error;
+                break;
+            default:
+                typeStyles = NotificationsType.warning;
+                break;
+        }
+
+        let notice = {
+            ...typeStyles,
             // Add unique ID for every 'the same pair' notification
             id: HelpersFoo.getRandomNumber('main'),
             content: notificationText,
@@ -102,7 +115,7 @@ class Main extends React.Component {
             if (oldNotifications.length > 3) {
                 oldNotifications.shift();
             }
-            return {notifications: [...oldNotifications, {...warning},]};
+            return {notifications: [...oldNotifications, {...notice},]};
         })
     }
 
@@ -146,9 +159,10 @@ class Main extends React.Component {
         }));
     };
 
-    handleClickMobileDeviceButton = (e) => {
+    handleClickSaveButton = (e) => {
         e.preventDefault();
-        console.log(1);
+
+        this.showNotification(`You pairs successfully saved`, 'success');
     };
 
     componentDidMount() {
@@ -189,11 +203,15 @@ class Main extends React.Component {
                     setCoin={this.setCoin}
                 />
 
-                {/*<button*/}
-                  {/*style={buttons.gradientMiddle}*/}
-                  {/*onClick={this.handleClickMobileDeviceButton}>*/}
-                    {/*create shortcut on screen*/}
-                {/*</button>*/}
+                <div
+                    style={MainStyles.buttonWrapper}
+                    onClick={this.handleClickSaveButton}>
+                        <button
+                          style={MainStyles.saveButton}
+                          onClick={this.handleClickMobileDeviceButton}>
+                            <FontAwesome name='save' />
+                        </button>
+                </div>
 
                 {/* Notifications */}
                 <NotificationList

@@ -28,6 +28,10 @@ const NotificationStyles = {
         color: variables.colorNoteTextError,
         backgroundColor: variables.colorNoteBackgroundError,
     },
+    successType: {
+        color: variables.colorNoteTextSuccess,
+        backgroundColor: variables.colorNoteBackgroundSuccess,
+    },
     warningSign: { color: '#a58613', },
     errorSign: { color: '9e0b0b', },
     sign: {

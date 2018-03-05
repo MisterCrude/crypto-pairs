@@ -10,6 +10,18 @@ const MainStyles = {
         borderRadius: variables.borderRadius,
         boxShadow: variables.boxShadow,
     },
+    saveButton: {
+        fontSize: '30px',
+        width: '60px',
+        height: '60px',
+        borderRadius: '60px',
+        cursor: 'pointer',
+        border: `1px solid ${variables.gay}`,
+    },
+    buttonWrapper: {
+        display: 'flex',
+        justifyContent: 'center'
+    },
     containerDesktop: { padding: variables.paddingLarge },
     containerMobile: { padding: variables.paddingSmall },
 };

@@ -7,7 +7,7 @@ import NotificationStyles from './NotificationStyles';
 class Notification extends React.Component {
     constructor(props) {
         super(props);
-        this.dismissTimeout = 3000;
+        this.dismissTimeout = 30000;
     }
 
     componentDidMount() {
@@ -21,6 +21,8 @@ class Notification extends React.Component {
             type,
             dismiss
         } = this.props;
+
+        console.log(type)
 
         return(
             <div style={NotificationStyles.wrapper}>

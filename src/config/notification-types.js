@@ -1,4 +1,9 @@
 const NotificationTypes = {
+    success: {
+        id: null,
+        type: 'success',
+        content: null,
+    },
     warning: {
         id: null,
         type: 'warning',

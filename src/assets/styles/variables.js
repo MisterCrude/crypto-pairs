@@ -9,8 +9,10 @@ const variables = {
 
     colorNoteBackgroundWarning: 'rgba(240, 199, 40, .9)',
     colorNoteBackgroundError: 'rgba(243, 102, 48, .9)',
+    colorNoteBackgroundSuccess: 'rgba(139, 195, 74, .8)',
     colorNoteTextWarning: '#543e19',
     colorNoteTextError: '#7d1d1d',
+    colorNoteTextSuccess: 'rgb(61, 136, 64)',
 
     deepBlue: '#b9b9b9',
     green: '#008080',
