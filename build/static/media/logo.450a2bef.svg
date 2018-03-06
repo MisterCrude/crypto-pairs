@@ -6,10 +6,10 @@
     <defs>
         <linearGradient x1="20.7890625%" y1="33.6328125%" x2="88.375%" y2="82.478125%" id="linearGradient-1">
             <stop stop-color="#8247A6" offset="0%">
-            	<animate attributeName="stop-color" values="#8247A6; #C346DE; #8247A6" dur="4s" repeatCount="indefinite"></animate>
+            	<animate attributeName="stop-color" values="#8247A6; #dc76f3; #8247A6" dur="4s" repeatCount="indefinite"></animate>
             </stop>
-            <stop stop-color="#C346DE" offset="100%">
-            	<animate attributeName="stop-color" values="#C346DE; #8247A6; #C346DE" dur="4s" repeatCount="indefinite"></animate>
+            <stop stop-color="#dc76f3" offset="100%">
+            	<animate attributeName="stop-color" values="#dc76f3; #8247A6; #dc76f3" dur="4s" repeatCount="indefinite"></animate>
             </stop>
         </linearGradient>
     </defs>
