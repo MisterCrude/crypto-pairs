@@ -172,7 +172,7 @@ class Main extends React.Component {
 
         if (pairs) {
             pairs = JSON.parse(pairs);
-            pairs.forEach((pair) => this.addNewCurrenciesPair(null, pair.base, pair.target))
+            pairs.map((pair) => this.addNewCurrenciesPair(null, pair.base, pair.target))
         } else {
             this.addNewCurrenciesPair(null, baseCoin, targetCoin);
         }
