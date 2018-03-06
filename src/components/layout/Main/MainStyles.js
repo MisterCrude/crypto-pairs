@@ -11,6 +11,7 @@ const MainStyles = {
         boxShadow: variables.boxShadow,
     },
     saveButton: {
+        background: variables.white,
         fontSize: '30px',
         width: '60px',
         height: '60px',
