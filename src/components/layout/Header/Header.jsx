@@ -8,13 +8,11 @@ const Header = ({ deviceType }) => (
         ...HeaderStyles.main,
         ...HeaderStyles[`main${deviceType}`]
     }}>
-        <a href="/">
-            <img
-              style={HeaderStyles.logo}
-              src={logo}
-              alt='Currency exchange'
-            />
-        </a>
+        <img
+          style={HeaderStyles.logo}
+          src={logo}
+          alt='Currency exchange'
+        />
         <h1>Exchange rate for BTC / LTC and etc.</h1>
     </header>
 );
