@@ -31,7 +31,7 @@ const CurrenciesPairs = ({ showThrobber, currenciesPairs, removeCurrenciesPair, 
                             {hasError &&  <h2 style={CurrenciesPairsStyles.errorMsg}>Sorry, some server error. Try again later.</h2>}
 
                             {/* Throbber */}
-                            {showThrobber &&
+                            {(showThrobber && !hasError) &&
                                 <FontAwesome
                                     style={CurrenciesPairsStyles.spinner}
                                     name='spinner'
