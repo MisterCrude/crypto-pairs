@@ -152,10 +152,8 @@ class Main extends React.Component {
     };
 
     // Close notifications
-    dismissNotification = (e, notificationId) => {
-        if (e) {
-            e.preventDefault();
-        }
+    dismissNotification = (event, notificationId) => {
+        event && event.preventDefault();
 
         this.setState(prevState => ({
             notifications: prevState.notifications.filter(item => item.id !== notificationId)
