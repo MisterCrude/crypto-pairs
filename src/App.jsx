@@ -6,17 +6,16 @@ import 'font-awesome/css/font-awesome.css';
 import AppConfig from './config/app-config';
 import AppStyles from './AppStyles';
 
-
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            windowWidth: 0,
-        }
+            windowWidth: 0
+        };
     }
 
     getDeviceType = () => {
-        let deviceType = (window.innerWidth < AppConfig.breakpoint) ? 'Mobile' : 'Desktop';
+        let deviceType = window.innerWidth < AppConfig.breakpoint ? 'Mobile' : 'Desktop';
         this.setState({ deviceType: deviceType });
     };
 
