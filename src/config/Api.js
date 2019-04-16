@@ -1,9 +1,9 @@
-import AppConfig from './app-config';
-import { HelpersFoo } from './helpers-foo';
+import Config from './config';
+import { Helpers } from './helpers';
 
 class Api {
-    constructor () {
-        this.apiUrl = AppConfig.apiUrl;
+    constructor() {
+        this.apiUrl = Config.apiUrl;
     }
 
     _changeUpDetection(change) {
@@ -11,12 +11,12 @@ class Api {
     }
 
     _countPercentage(change, price) {
-        let percents = (change/(price/100));
+        let percents = change / (price / 100);
         let result = '';
 
         if (percents < 1) {
             result = percents.toString().replace('-', '');
-            result = (result < 1) ? '< 1' : (+result).toFixed(2);
+            result = result < 1 ? '< 1' : (+result).toFixed(2);
         } else {
             result = percents.toFixed(2);
         }
@@ -32,14 +32,20 @@ class Api {
             convertedPrice = convertedPrice.split('.');
 
             let firstPart = convertedPrice[0];
-            firstPart = firstPart.split('').reverse().join('');
+            firstPart = firstPart
+                .split('')
+                .reverse()
+                .join('');
             firstPart = firstPart.match(/.{1,3}/g);
 
             firstPart = firstPart.map(item => {
-                return item+',';
+                return item + ',';
             });
 
-            firstPart = firstPart.join('').split('').reverse();
+            firstPart = firstPart
+                .join('')
+                .split('')
+                .reverse();
             firstPart.shift();
             convertedPrice = `${firstPart.join('')}.${convertedPrice[1]}`;
         }
@@ -48,15 +54,15 @@ class Api {
     }
 
     get getBaseCurrenciesList() {
-        return [ ...AppConfig.currencies.crypto ]
+        return [...Config.currencies.crypto];
     }
 
     get getTargetCurrenciesList() {
-        return [ ...AppConfig.currencies.fiat, ...AppConfig.currencies.crypto ]
+        return [...Config.currencies.fiat, ...Config.currencies.crypto];
     }
 
     get getAffiliateLink() {
-        return  { ...AppConfig.affiliateLink };
+        return { ...Config.affiliateLink };
     }
 
     currencyRate(currencyCoinOne, currencyCoinTwo) {
@@ -64,19 +70,19 @@ class Api {
         let targetCoin = currencyCoinTwo.toLowerCase();
 
         return fetch(`${this.apiUrl}/ticker/${baseCoin}-${targetCoin}`, {
-            method: 'GET',
+            method: 'GET'
         })
             .then(resp => resp.json())
             .then(resp => resp['ticker'])
             .then(resp => ({
-                id: HelpersFoo.getRandomNumber('api'),
+                id: Helpers.getRandomNumber('api'),
                 base: resp.base,
                 target: resp.target,
                 price: this._prettyPriceFormat(resp.price),
                 change: resp.change,
                 changePercents: this._countPercentage(resp.change, resp.price),
-                changeUp: !this._changeUpDetection(resp.change),
-            }))
+                changeUp: !this._changeUpDetection(resp.change)
+            }));
     }
 }
 
