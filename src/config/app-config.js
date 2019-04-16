@@ -1,6 +1,10 @@
 const AppConfig = {
     // Detect prod or dev environment
-    isDev: (window && window.location && window.location.hostname && window.location.hostname === 'localhost'),
+    isDev:
+        window &&
+        window.location &&
+        window.location.hostname &&
+        window.location.hostname === 'localhost',
 
     // External API endpoint
     apiUrl: 'https://api.cryptonator.com/api',
@@ -8,7 +12,7 @@ const AppConfig = {
     // Affiliate link in footer
     affiliateLink: {
         name: 'cryptonator.com',
-        link: 'https://www.cryptonator.com/auth/signup/101759215',
+        link: 'https://www.cryptonator.com/'
     },
 
     // Point for  styles
@@ -20,7 +24,7 @@ const AppConfig = {
             { shortName: 'USD', code: 'USD', name: 'US Dollar' },
             { shortName: 'EUR', code: 'EUR', name: 'Euro' },
             { shortName: 'PLN', code: 'PLN', name: 'Polish zlotys' },
-            { shortName: 'RUB', code: 'RUR', name: 'Ruble' },
+            { shortName: 'RUB', code: 'RUR', name: 'Ruble' }
         ],
         crypto: [
             { shortName: 'BTC', code: 'BTC', name: 'Bitcoin' },
@@ -29,10 +33,9 @@ const AppConfig = {
             { shortName: 'BCH', code: 'BCH', name: 'Bitcoin cash' },
             { shortName: 'XRP', code: 'XRP', name: 'Ripple' },
             { shortName: 'DASH', code: 'DASH', name: 'Dash' },
-            { shortName: 'XMR', code: 'XMR', name: 'Monero' },
-        ],
-    },
+            { shortName: 'XMR', code: 'XMR', name: 'Monero' }
+        ]
+    }
 };
 
 export default AppConfig;
-
