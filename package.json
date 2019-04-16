@@ -5,11 +5,11 @@
   "homepage": "https://ivyman.github.io/crypto_pairs/build",
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "react": "^16.2.0",
+    "react": "^16.8.6",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
-    "react-scripts": "1.0.17"
+    "react-scripts": "2.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,6 +18,12 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "gh-pages": "^1.1.0"
-  }
+    "gh-pages": "^2.0.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
