@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Api from '../../config/Api';
 import FooterStyles from './FooterStyles';
 
@@ -19,5 +20,13 @@ const Footer = ({ deviceType }) => (
         </p>
     </footer>
 );
+
+Footer.defaultName = 'Footer';
+Footer.propTypes = {
+    deviceType: PropTypes.string
+};
+Footer.defaultProps = {
+    deviceType: 'Desktop'
+};
 
 export default Footer;

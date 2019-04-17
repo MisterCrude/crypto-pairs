@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import variables from '../../styles/variables';
 import SearchInputSuggestBoxStyles from './SearchInputSuggestBoxStyles';
 
@@ -124,5 +125,21 @@ class SearchInputSuggestBox extends React.Component {
         );
     }
 }
+
+SearchInputSuggestBox.defaultName = 'SearchInputSuggestBox';
+SearchInputSuggestBox.propTypes = {
+    setSelectedItem: PropTypes.func.isRequired,
+    keyboardButtonsActive: PropTypes.string,
+    showSuggestBox: PropTypes.bool,
+    inputValue: PropTypes.string,
+    deviceType: PropTypes.string,
+    items: PropTypes.array
+};
+SearchInputSuggestBox.defaultProps = {
+    keyboardButtonsActive: '',
+    inputValue: '',
+    items: [],
+    deviceType: 'Desktop'
+};
 
 export default SearchInputSuggestBox;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import variables from '../../styles/variables';
 import helpers from '../../styles/helpers';
@@ -145,5 +146,24 @@ class CurrencyRow extends React.Component {
         );
     }
 }
+
+CurrencyRow.defaultName = 'CurrencyRow';
+CurrencyRow.propTypes = {
+    change: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    changeUp: PropTypes.bool.isRequired,
+    changePercents: PropTypes.string.isRequired,
+    hideRemoveButton: PropTypes.bool,
+    removeCurrenciesPair: PropTypes.func.isRequired,
+    base: PropTypes.string,
+    target: PropTypes.string,
+    deviceType: PropTypes.string
+};
+CurrencyRow.defaultProps = {
+    base: 'BTC',
+    target: 'USD',
+    hideRemoveButton: true,
+    deviceType: 'Desktop'
+};
 
 export default CurrencyRow;

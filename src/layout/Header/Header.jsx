@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HeaderStyles from './HeaderStyles';
 import logo from './assets/logo.svg';
 
@@ -14,6 +15,14 @@ const Header = ({ deviceType }) => {
             <h1>Exchange rate for BTC / LTC and etc.</h1>
         </header>
     );
+};
+
+Header.defaultName = 'Header';
+Header.propTypes = {
+    deviceType: PropTypes.string
+};
+Header.defaultProps = {
+    deviceType: 'Desktop'
 };
 
 export default Header;

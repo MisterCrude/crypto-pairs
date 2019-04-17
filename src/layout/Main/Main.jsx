@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CurrenciesPairs from '../../components/CurrenciesPairs';
 import AddNewCurrency from '../../components/AddNewCurrency';
 import NotificationList from '../../components/NotificationList';
@@ -241,5 +242,13 @@ class Main extends React.Component {
         );
     }
 }
+
+Main.defaultName = 'Main';
+Main.propTypes = {
+    deviceType: PropTypes.string
+};
+Main.defaultProps = {
+    deviceType: 'Desktop'
+};
 
 export default Main;

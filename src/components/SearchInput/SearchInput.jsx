@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchInputSuggestBox from '../SearchInputSuggestBox';
 import SearchInputStyles from './SearchInputStyles';
-
 
 class SearchInput extends React.Component {
     constructor(props) {
@@ -10,20 +10,20 @@ class SearchInput extends React.Component {
             inputValue: '',
             showSuggestBox: false,
             clearInput: true,
-            keyboardButtonsActive: '',
-        }
+            keyboardButtonsActive: ''
+        };
     }
 
-    handleChange = (event) => {
+    handleChange = event => {
         // Set input value
         this.setState({
-            inputValue: event.target.value,
+            inputValue: event.target.value
         });
     };
 
-    handleKeyboard = (event) => {
+    handleKeyboard = event => {
         this.setState({
-            keyboardButtonsActive: event.key,
+            keyboardButtonsActive: event.key
         });
 
         if (event.key === 'Enter') {
@@ -35,17 +35,17 @@ class SearchInput extends React.Component {
         }
     };
 
-    focusInputStatus = (isFocus) => {
+    focusInputStatus = isFocus => {
         setTimeout(() => {
             if (this.state.clearInput) {
                 this.setState({
                     inputValue: '',
-                    keyboardButtonsActive: '',
+                    keyboardButtonsActive: ''
                 });
             }
             this.setState({
                 showSuggestBox: isFocus,
-                clearInput: true,
+                clearInput: true
             });
         }, 10);
     };
@@ -53,51 +53,60 @@ class SearchInput extends React.Component {
     setSelectedItem = (coinName, fullCurrencyName) => {
         this.setState({
             inputValue: fullCurrencyName,
-            clearInput: false,
+            clearInput: false
         });
         this.props.setValue(coinName);
     };
 
     componentWillReceiveProps(nextProps) {
-       if (nextProps.clearInput) {
-           this.setState({ inputValue: '' });
-       }
+        if (nextProps.clearInput) {
+            this.setState({ inputValue: '' });
+        }
     }
 
     render() {
-        const {
-            items,
-            label,
-            deviceType,
-        } = this.props;
+        const { items, label, deviceType } = this.props;
 
-        return(
-           <fieldset style={SearchInputStyles.fieldSet}>
-               {/* Text field */}
-               <input
-                   style={SearchInputStyles.input}
-                   placeholder={label}
-                   onFocus={() => this.focusInputStatus(true)}
-                   onClick={() => this.focusInputStatus(true)}
-                   onBlur={() => this.focusInputStatus(false)}
-                   onChange={this.handleChange}
-                   onKeyDown={this.handleKeyboard}
-                   value={this.state.inputValue}
-                   type='text'
-               />
+        return (
+            <fieldset style={SearchInputStyles.fieldSet}>
+                {/* Text field */}
+                <input
+                    style={SearchInputStyles.input}
+                    placeholder={label}
+                    onFocus={() => this.focusInputStatus(true)}
+                    onClick={() => this.focusInputStatus(true)}
+                    onBlur={() => this.focusInputStatus(false)}
+                    onChange={this.handleChange}
+                    onKeyDown={this.handleKeyboard}
+                    value={this.state.inputValue}
+                    type="text"
+                />
 
-               {/* Suggestions */}
-               <SearchInputSuggestBox
-                   deviceType={deviceType}
-                   showSuggestBox={this.state.showSuggestBox}
-                   setSelectedItem={this.setSelectedItem}
-                   inputValue={this.state.inputValue}
-                   keyboardButtonsActive={this.state.keyboardButtonsActive}
-                   items={items}
-               />
-           </fieldset>
+                {/* Suggestions */}
+                <SearchInputSuggestBox
+                    deviceType={deviceType}
+                    showSuggestBox={this.state.showSuggestBox}
+                    setSelectedItem={this.setSelectedItem}
+                    inputValue={this.state.inputValue}
+                    keyboardButtonsActive={this.state.keyboardButtonsActive}
+                    items={items}
+                />
+            </fieldset>
         );
     }
 }
+
+SearchInput.defaultName = 'SearchInput';
+SearchInput.propTypes = {
+    items: PropTypes.array,
+    deviceType: PropTypes.string,
+    setValue: PropTypes.func.isRequired,
+    label: PropTypes.string
+};
+SearchInput.defaultProps = {
+    items: [],
+    label: '',
+    deviceType: 'Desktop'
+};
 
 export default SearchInput;
