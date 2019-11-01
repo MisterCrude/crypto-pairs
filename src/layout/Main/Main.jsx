@@ -223,11 +223,8 @@ class Main extends React.Component {
                 />
 
                 {localStorage && (
-                    <div style={MainStyles.buttonWrapper} onClick={this.handleClickSaveButton}>
-                        <button
-                            style={MainStyles.saveButton}
-                            onClick={this.handleClickMobileDeviceButton}
-                        >
+                    <div style={MainStyles.buttonWrapper}>
+                        <button style={MainStyles.saveButton} onClick={this.handleClickSaveButton}>
                             <FontAwesome name="save" />
                         </button>
                     </div>
