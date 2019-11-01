@@ -2,14 +2,15 @@
     "name": "currencies",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://ivyman.github.io/crypto-pairs/",
     "dependencies": {
         "font-awesome": "^4.7.0",
         "prop-types": "^15.7.2",
-        "react": "^16.8.6",
+        "react": "^16.11.0",
         "react-addons-css-transition-group": "^15.6.2",
-        "react-dom": "^16.8.6",
+        "react-dom": "^16.11.0",
         "react-fontawesome": "^1.6.1",
-        "react-scripts": "2.1.8"
+        "react-scripts": "3.2.0"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -20,13 +21,12 @@
         "deploy": "gh-pages -d build"
     },
     "devDependencies": {
-        "gh-pages": "^2.0.1"
+        "gh-pages": "^2.1.1"
     },
     "browserslist": [
         ">0.2%",
         "not dead",
         "not ie <= 11",
         "not op_mini all"
-    ],
-    "homepage": "https://ivyman.github.io/crypto_pairs"
+    ]
 }
