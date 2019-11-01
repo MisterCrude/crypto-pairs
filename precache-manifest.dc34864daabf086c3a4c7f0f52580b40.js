@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "584abbd01c7190215a3501c5840cc55c",
+    "revision": "ac2a69af4594d1d709c30b7f908eea29",
     "url": "/crypto-pairs/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crypto-pairs/static/css/2.063bdab7.chunk.css"
   },
   {
-    "revision": "d15c3bd2542bc9229971",
+    "revision": "73489be59bfebd21319a",
     "url": "/crypto-pairs/static/css/main.21255cdc.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crypto-pairs/static/js/2.1a658f56.chunk.js"
   },
   {
-    "revision": "d15c3bd2542bc9229971",
-    "url": "/crypto-pairs/static/js/main.d25d0b58.chunk.js"
+    "revision": "73489be59bfebd21319a",
+    "url": "/crypto-pairs/static/js/main.101083c3.chunk.js"
   },
   {
     "revision": "803ad5939b46cd684728",

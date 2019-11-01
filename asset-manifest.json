@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/crypto-pairs/static/css/main.21255cdc.chunk.css",
-    "main.js": "/crypto-pairs/static/js/main.d25d0b58.chunk.js",
-    "main.js.map": "/crypto-pairs/static/js/main.d25d0b58.chunk.js.map",
+    "main.js": "/crypto-pairs/static/js/main.101083c3.chunk.js",
+    "main.js.map": "/crypto-pairs/static/js/main.101083c3.chunk.js.map",
     "runtime-main.js": "/crypto-pairs/static/js/runtime-main.810da60a.js",
     "runtime-main.js.map": "/crypto-pairs/static/js/runtime-main.810da60a.js.map",
     "static/css/2.063bdab7.chunk.css": "/crypto-pairs/static/css/2.063bdab7.chunk.css",
     "static/js/2.1a658f56.chunk.js": "/crypto-pairs/static/js/2.1a658f56.chunk.js",
     "static/js/2.1a658f56.chunk.js.map": "/crypto-pairs/static/js/2.1a658f56.chunk.js.map",
     "index.html": "/crypto-pairs/index.html",
-    "precache-manifest.634dfdeb8feb9446fa9cc1be552303be.js": "/crypto-pairs/precache-manifest.634dfdeb8feb9446fa9cc1be552303be.js",
+    "precache-manifest.dc34864daabf086c3a4c7f0f52580b40.js": "/crypto-pairs/precache-manifest.dc34864daabf086c3a4c7f0f52580b40.js",
     "service-worker.js": "/crypto-pairs/service-worker.js",
     "static/css/2.063bdab7.chunk.css.map": "/crypto-pairs/static/css/2.063bdab7.chunk.css.map",
     "static/css/main.21255cdc.chunk.css.map": "/crypto-pairs/static/css/main.21255cdc.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.063bdab7.chunk.css",
     "static/js/2.1a658f56.chunk.js",
     "static/css/main.21255cdc.chunk.css",
-    "static/js/main.d25d0b58.chunk.js"
+    "static/js/main.101083c3.chunk.js"
   ]
 }
