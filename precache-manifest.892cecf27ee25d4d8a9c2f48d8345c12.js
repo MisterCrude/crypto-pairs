@@ -1,27 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ac2a69af4594d1d709c30b7f908eea29",
+    "revision": "854e47aba3ce158fca41ab02b04edaf7",
     "url": "/crypto-pairs/index.html"
   },
   {
-    "revision": "853a4fb080a0419ec0a5",
-    "url": "/crypto-pairs/static/css/2.063bdab7.chunk.css"
+    "revision": "c3e072ded8667c7f2feb",
+    "url": "/crypto-pairs/static/css/2.4c053261.chunk.css"
   },
   {
-    "revision": "73489be59bfebd21319a",
-    "url": "/crypto-pairs/static/css/main.21255cdc.chunk.css"
+    "revision": "b249f1a374e0353e4cda",
+    "url": "/crypto-pairs/static/css/main.5887b587.chunk.css"
   },
   {
-    "revision": "853a4fb080a0419ec0a5",
-    "url": "/crypto-pairs/static/js/2.1a658f56.chunk.js"
+    "revision": "c3e072ded8667c7f2feb",
+    "url": "/crypto-pairs/static/js/2.324c87bd.chunk.js"
   },
   {
-    "revision": "73489be59bfebd21319a",
-    "url": "/crypto-pairs/static/js/main.101083c3.chunk.js"
+    "revision": "b5a01430b9928300ee798657f45fe7d4",
+    "url": "/crypto-pairs/static/js/2.324c87bd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "803ad5939b46cd684728",
-    "url": "/crypto-pairs/static/js/runtime-main.810da60a.js"
+    "revision": "b249f1a374e0353e4cda",
+    "url": "/crypto-pairs/static/js/main.d1dc609d.chunk.js"
+  },
+  {
+    "revision": "79fd42e9b281f9d19895",
+    "url": "/crypto-pairs/static/js/runtime-main.a5f6f1ab.js"
   },
   {
     "revision": "674f50d287a8c48dc19ba404d20fe713",

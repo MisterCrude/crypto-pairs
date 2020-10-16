@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/crypto-pairs/static/css/main.21255cdc.chunk.css",
-    "main.js": "/crypto-pairs/static/js/main.101083c3.chunk.js",
-    "main.js.map": "/crypto-pairs/static/js/main.101083c3.chunk.js.map",
-    "runtime-main.js": "/crypto-pairs/static/js/runtime-main.810da60a.js",
-    "runtime-main.js.map": "/crypto-pairs/static/js/runtime-main.810da60a.js.map",
-    "static/css/2.063bdab7.chunk.css": "/crypto-pairs/static/css/2.063bdab7.chunk.css",
-    "static/js/2.1a658f56.chunk.js": "/crypto-pairs/static/js/2.1a658f56.chunk.js",
-    "static/js/2.1a658f56.chunk.js.map": "/crypto-pairs/static/js/2.1a658f56.chunk.js.map",
+    "main.css": "/crypto-pairs/static/css/main.5887b587.chunk.css",
+    "main.js": "/crypto-pairs/static/js/main.d1dc609d.chunk.js",
+    "main.js.map": "/crypto-pairs/static/js/main.d1dc609d.chunk.js.map",
+    "runtime-main.js": "/crypto-pairs/static/js/runtime-main.a5f6f1ab.js",
+    "runtime-main.js.map": "/crypto-pairs/static/js/runtime-main.a5f6f1ab.js.map",
+    "static/css/2.4c053261.chunk.css": "/crypto-pairs/static/css/2.4c053261.chunk.css",
+    "static/js/2.324c87bd.chunk.js": "/crypto-pairs/static/js/2.324c87bd.chunk.js",
+    "static/js/2.324c87bd.chunk.js.map": "/crypto-pairs/static/js/2.324c87bd.chunk.js.map",
     "index.html": "/crypto-pairs/index.html",
-    "precache-manifest.dc34864daabf086c3a4c7f0f52580b40.js": "/crypto-pairs/precache-manifest.dc34864daabf086c3a4c7f0f52580b40.js",
+    "precache-manifest.892cecf27ee25d4d8a9c2f48d8345c12.js": "/crypto-pairs/precache-manifest.892cecf27ee25d4d8a9c2f48d8345c12.js",
     "service-worker.js": "/crypto-pairs/service-worker.js",
-    "static/css/2.063bdab7.chunk.css.map": "/crypto-pairs/static/css/2.063bdab7.chunk.css.map",
-    "static/css/main.21255cdc.chunk.css.map": "/crypto-pairs/static/css/main.21255cdc.chunk.css.map",
+    "static/css/2.4c053261.chunk.css.map": "/crypto-pairs/static/css/2.4c053261.chunk.css.map",
+    "static/css/main.5887b587.chunk.css.map": "/crypto-pairs/static/css/main.5887b587.chunk.css.map",
+    "static/js/2.324c87bd.chunk.js.LICENSE.txt": "/crypto-pairs/static/js/2.324c87bd.chunk.js.LICENSE.txt",
     "static/media/font-awesome.css": "/crypto-pairs/static/media/fontawesome-webfont.fee66e71.woff",
     "static/media/logo.svg": "/crypto-pairs/static/media/logo.53155019.svg",
     "static/media/main-bg.png": "/crypto-pairs/static/media/main-bg.ebc94bc1.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.810da60a.js",
-    "static/css/2.063bdab7.chunk.css",
-    "static/js/2.1a658f56.chunk.js",
-    "static/css/main.21255cdc.chunk.css",
-    "static/js/main.101083c3.chunk.js"
+    "static/js/runtime-main.a5f6f1ab.js",
+    "static/css/2.4c053261.chunk.css",
+    "static/js/2.324c87bd.chunk.js",
+    "static/css/main.5887b587.chunk.css",
+    "static/js/main.d1dc609d.chunk.js"
   ]
 }
