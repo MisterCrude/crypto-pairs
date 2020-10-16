@@ -36,24 +36,23 @@ class SearchInput extends React.Component {
     };
 
     focusInputStatus = isFocus => {
-        setTimeout(() => {
-            if (this.state.clearInput) {
-                this.setState({
-                    inputValue: '',
-                    keyboardButtonsActive: ''
-                });
-            }
+        if (this.state.clearInput) {
             this.setState({
-                showSuggestBox: isFocus,
-                clearInput: true
+                inputValue: '',
+                keyboardButtonsActive: ''
             });
-        }, 10);
+        }
+        this.setState({
+            showSuggestBox: isFocus,
+            clearInput: true
+        });
     };
 
     setSelectedItem = (coinName, fullCurrencyName) => {
         this.setState({
             inputValue: fullCurrencyName,
-            clearInput: false
+            clearInput: false,
+            showSuggestBox: false
         });
         this.props.setValue(coinName);
     };
@@ -73,9 +72,7 @@ class SearchInput extends React.Component {
                 <input
                     style={SearchInputStyles.input}
                     placeholder={label}
-                    onFocus={() => this.focusInputStatus(true)}
                     onClick={() => this.focusInputStatus(true)}
-                    onBlur={() => this.focusInputStatus(false)}
                     onChange={this.handleChange}
                     onKeyDown={this.handleKeyboard}
                     value={this.state.inputValue}
